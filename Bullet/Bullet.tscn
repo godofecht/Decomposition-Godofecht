@@ -11,11 +11,11 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
 gradient = SubResource( 2 )
 width = 1
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 2.66961
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2.68305, 2.43604 )
 
 [node name="Bullet" type="RigidBody2D"]
-collision_layer = 8
+collision_layer = 40
 collision_mask = 2
 physics_material_override = SubResource( 1 )
 
@@ -24,5 +24,5 @@ scale = Vector2( 5.03929, 5.03929 )
 texture = SubResource( 3 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.0149059, -0.0596204 )
+position = Vector2( -0.0149059, -0.0745254 )
 shape = SubResource( 4 )

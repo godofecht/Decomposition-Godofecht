@@ -6,6 +6,9 @@ export var FRICTION = 800
 export var BULLET_SPEED = 400
 
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
+onready var AbsorbCollision = $AbsorbArea/AbsorbCollision
+
+export var ammo = 3
 
 enum {
 	RUNNING,
@@ -31,9 +34,6 @@ func move_state(delta: float):
 	input_vector.x = Input.get_action_strength("KEY_RIGHT") - Input.get_action_strength("KEY_LEFT")
 	input_vector.y = Input.get_action_strength("KEY_DOWN") - Input.get_action_strength("KEY_UP")
 	input_vector = input_vector.normalized()
-	var mouse_vec = get_global_mouse_position()
-	var a = Vector2(-mouse_vec.y, mouse_vec.x).angle()
-	var r_radians = get_global_mouse_position().angle_to(global_position)
 
 	rotation_degrees = rad2deg(get_angle_to(get_global_mouse_position()) + rotation) + 90
 	
@@ -44,11 +44,36 @@ func move_state(delta: float):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
 	if Input.is_action_just_pressed("PRIMARY"):
-		var bullet = Bullet_Scene.instance()
-		bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
-		bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
-		get_parent().add_child(bullet)
+		shoot()
+		
+	if Input.is_action_just_pressed("SECONDARY"):
+		absorb()
+		
+	if Input.is_action_just_released("SECONDARY"):
+		stopAbsorbing()
+		
 	move()
-	
+
+func shoot():
+	if (ammo <= 0): return
+	ammo -= 1
+	var bullet = Bullet_Scene.instance()
+	bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
+	bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
+	get_parent().add_child(bullet)
+
+func absorb():
+	print("Absorb enabled")
+	AbsorbCollision.disabled = false
+
+func stopAbsorbing():
+	print("Absorb disabled")
+	AbsorbCollision.disabled = true
+
 func move():
 	velocity = move_and_slide(velocity)
+
+func _on_AbsorbArea_body_entered(body: Node) -> void:
+	body.queue_free()
+	ammo += 1
+	

@@ -85,6 +85,8 @@ SECONDARY={
 2d_physics/layer_2="World"
 2d_physics/layer_3="Bacteria"
 2d_physics/layer_4="Bullets"
+2d_physics/layer_5="AbsorbRay"
+2d_physics/layer_6="Absorbable"
 
 [physics]
 
