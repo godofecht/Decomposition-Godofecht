@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/World_Column.png" type="Texture" id=2]
 [ext_resource path="res://World/World_Wall.png" type="Texture" id=3]
 [ext_resource path="res://World/World_Corner.png" type="Texture" id=4]
+[ext_resource path="res://Bacteria/Bacteria.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -106,3 +107,12 @@ position = Vector2( 281.121, 177.256 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 122.554, 205.957 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 640.429, 219.549 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 847.857, 474.846 )
