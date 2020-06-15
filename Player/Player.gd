@@ -7,8 +7,17 @@ export var BULLET_SPEED = 400
 
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
 onready var AbsorbCollision = $AbsorbArea/AbsorbCollision
+onready var ShootingSFX = $ShootingSFX
 
-export var ammo = 3
+export(int) var ammo = 3
+
+
+signal AmmoChange
+func onAmmoSet():
+	print(ammo)
+	emit_signal("AmmoChange", ammo)
+
+
 
 enum {
 	RUNNING,
@@ -56,7 +65,9 @@ func move_state(delta: float):
 
 func shoot():
 	if (ammo <= 0): return
-	ammo -= 1
+	ammo = ammo - 1
+	onAmmoSet()
+	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
 	bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
@@ -76,4 +87,5 @@ func move():
 func _on_AbsorbArea_body_entered(body: Node) -> void:
 	body.queue_free()
 	ammo += 1
+	onAmmoSet()
 	

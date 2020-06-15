@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player_2.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Player/SFX/Player - Shoot V1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,11 +22,9 @@ points = PoolVector2Array( -10, 0, 10, 0, 0, -20 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 3 )
-ammo = 10
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -42,4 +41,7 @@ rotation = 3.14159
 scale = Vector2( 2, 2 )
 shape = SubResource( 3 )
 disabled = true
+
+[node name="ShootingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="body_entered" from="AbsorbArea" to="." method="_on_AbsorbArea_body_entered"]
