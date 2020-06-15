@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Player - Suction Power Down.ogg-934d41dfa08e944da11cf5610ab585c0.oggstr"
+
+[deps]
+
+source_file="res://Player/SFX/Player - Suction Power Down.ogg"
+dest_files=[ "res://.import/Player - Suction Power Down.ogg-934d41dfa08e944da11cf5610ab585c0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

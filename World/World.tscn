@@ -108,7 +108,7 @@ position = Vector2( 281.121, 177.256 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.4, 0.4 )
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 122.554, 205.957 )
@@ -132,9 +132,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 72.0
-margin_top = 203.0
+margin_top = 202.186
 margin_right = -18.0
-margin_bottom = -16.0
+margin_bottom = -16.8145
 text = "Ammo Left: 3"
 align = 2
 valign = 2

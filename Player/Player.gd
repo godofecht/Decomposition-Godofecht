@@ -5,9 +5,17 @@ export var MAX_SPEED = 200
 export var FRICTION = 800
 export var BULLET_SPEED = 400
 
+onready var AnimationT = $AnimationTree
+onready var AnimationState = $AnimationTree.get("parameters/playback")
+
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
 onready var AbsorbCollision = $AbsorbArea/AbsorbCollision
+
+#SFX
 onready var ShootingSFX = $ShootingSFX
+onready var OnSuctionSFX = $OnSuctionSFX
+onready var OnSuctionStartSFX = $SuctionPowerUpSFX
+onready var OnSuctionFinishSFX = $SuctionPowerDownSFX
 
 export(int) var ammo = 3
 
@@ -21,19 +29,20 @@ func onAmmoSet():
 
 enum {
 	RUNNING,
-	STANDING
+	SUCTION
 }
 
 var state = RUNNING
 var velocity = Vector2.ZERO
 var direction_vector = Vector2.LEFT #Store direction for non movement animations
 
+func _ready() -> void:
+	AnimationT.active = true
+
 func _physics_process(delta: float) -> void:
 	match(state):
 		RUNNING:
 			move_state(delta)
-		STANDING:
-			standing_state(delta)
 
 func standing_state(delta: float):
 	pass
@@ -65,6 +74,8 @@ func move_state(delta: float):
 
 func shoot():
 	if (ammo <= 0): return
+	if !AbsorbCollision.disabled: return
+	AnimationState.travel("Shooting")
 	ammo = ammo - 1
 	onAmmoSet()
 	ShootingSFX.play()
@@ -75,10 +86,16 @@ func shoot():
 
 func absorb():
 	print("Absorb enabled")
+	if (AbsorbCollision.disabled):
+		OnSuctionStartSFX.play()
+		AnimationState.travel("Suction")
 	AbsorbCollision.disabled = false
 
 func stopAbsorbing():
 	print("Absorb disabled")
+	AnimationState.travel("Walking")
+	OnSuctionStartSFX.stop()
+	OnSuctionFinishSFX.play()
 	AbsorbCollision.disabled = true
 
 func move():
@@ -87,5 +104,9 @@ func move():
 func _on_AbsorbArea_body_entered(body: Node) -> void:
 	body.queue_free()
 	ammo += 1
+	OnSuctionSFX.play()
 	onAmmoSet()
 	
+
+func onShootingAnimationFinish():
+	AnimationState.travel("Walking")

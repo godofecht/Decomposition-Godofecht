@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bacteria/Bacteria.gd" type="Script" id=1]
+[ext_resource path="res://Bacteria/SFX/Enemy - Vocal 1.ogg" type="AudioStream" id=2]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.176471, 0.792157, 0.956863, 1, 0.176471, 0.792157, 0.956863, 1 )
@@ -39,4 +40,7 @@ collision_mask = 8
 position = Vector2( 0.00412172, -0.00330827 )
 scale = Vector2( 20, 20 )
 shape = SubResource( 4 )
+
+[node name="Vocal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 [connection signal="body_entered" from="ImpactArea" to="." method="_on_ImpactArea_body_entered"]
