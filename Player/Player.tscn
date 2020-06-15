@@ -21,6 +21,7 @@ points = PoolVector2Array( -10, 0, 10, 0, 0, -20 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 3 )
+ammo = 10
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -40,4 +41,5 @@ position = Vector2( -0.0462036, -39.293 )
 rotation = 3.14159
 scale = Vector2( 2, 2 )
 shape = SubResource( 3 )
+disabled = true
 [connection signal="body_entered" from="AbsorbArea" to="." method="_on_AbsorbArea_body_entered"]

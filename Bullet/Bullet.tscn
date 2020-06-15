@@ -18,6 +18,7 @@ extents = Vector2( 2.68305, 2.43604 )
 collision_layer = 40
 collision_mask = 2
 physics_material_override = SubResource( 1 )
+linear_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 5.03929, 5.03929 )
