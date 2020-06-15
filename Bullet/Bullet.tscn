@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 20000.0
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 1
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 2.66961
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 2
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 5.03929, 5.03929 )
+texture = SubResource( 3 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0149059, -0.0596204 )
+shape = SubResource( 4 )
