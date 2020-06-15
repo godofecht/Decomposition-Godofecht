@@ -10,6 +10,9 @@ onready var AnimationState = $AnimationTree.get("parameters/playback")
 
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
 onready var AbsorbCollision = $AbsorbArea/AbsorbCollision
+onready var SuctionEmitter1 = $AbsorbArea/SuctionEmitter1
+onready var SuctionEmitter2 = $AbsorbArea/SuctionEmitter2
+onready var SuctionEmitter3 = $AbsorbArea/SuctionEmitter3
 
 #SFX
 onready var ShootingSFX = $ShootingSFX
@@ -89,6 +92,12 @@ func absorb():
 	if (AbsorbCollision.disabled):
 		OnSuctionStartSFX.play()
 		AnimationState.travel("Suction")
+		SuctionEmitter1.emitting = true
+		SuctionEmitter1.visible = true
+		SuctionEmitter2.emitting = true
+		SuctionEmitter2.visible = true
+		SuctionEmitter3.emitting = true
+		SuctionEmitter3.visible = true
 	AbsorbCollision.disabled = false
 
 func stopAbsorbing():
@@ -97,6 +106,12 @@ func stopAbsorbing():
 	OnSuctionStartSFX.stop()
 	OnSuctionFinishSFX.play()
 	AbsorbCollision.disabled = true
+	SuctionEmitter1.emitting = false
+	SuctionEmitter1.visible = false
+	SuctionEmitter2.emitting = false
+	SuctionEmitter2.visible = false
+	SuctionEmitter3.emitting = false
+	SuctionEmitter3.visible = false
 
 func move():
 	velocity = move_and_slide(velocity)
