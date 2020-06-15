@@ -12,6 +12,13 @@ onready var HitSFX = $Hit
 
 var dead = false
 
+func _ready() -> void:
+	var impulseForce = 25
+	var direction_rotation = deg2rad((randi()%360+0))
+	apply_impulse(Vector2(20, 0).rotated(direction_rotation),
+				  Vector2(impulseForce, 0).rotated(direction_rotation))
+	
+
 func _on_ImpactArea_body_entered(body: Node) -> void:
 	HitSFX.play()
 	Health -= 1

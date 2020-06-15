@@ -114,15 +114,6 @@ position = Vector2( 281.121, 177.256 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 122.554, 205.957 )
-
-[node name="Node2D2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 640.429, 219.549 )
-
-[node name="Node2D3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 847.857, 474.846 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
@@ -145,4 +136,25 @@ valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 122.554, 205.957 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 639.429, 238.549 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 847.857, 474.846 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 205.83, 475.482 )
+
+[node name="Node2D5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 479.324, 512.975 )
+
+[node name="Node2D6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 893.446, 292.428 )
+
+[node name="Node2D7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 961.086, 124.827 )
 [connection signal="AmmoChange" from="Player" to="." method="_on_Player_AmmoChange"]
