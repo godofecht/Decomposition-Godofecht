@@ -21,14 +21,16 @@ onready var OnSuctionStartSFX = $SuctionPowerUpSFX
 onready var OnSuctionFinishSFX = $SuctionPowerDownSFX
 
 export(int) var ammo = 3
+export(int) var crystalsCollected = 0
 
-
+#for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
 func onAmmoSet():
-	print(ammo)
 	emit_signal("AmmoChange", ammo)
 
-
+signal CrystalCollectedChange
+func onCrystalCollectedChange():
+	emit_signal("CrystalCollectedChange", crystalsCollected)
 
 enum {
 	RUNNING,
@@ -117,10 +119,18 @@ func move():
 	velocity = move_and_slide(velocity)
 
 func _on_AbsorbArea_body_entered(body: Node) -> void:
+	print("Absorbed something")
 	body.queue_free()
-	ammo += 1
 	OnSuctionSFX.play()
-	onAmmoSet()
+	
+	if (body.filename == 'res://Crystal/Crystal.tscn'):
+		print("Absorbed a crystal")
+		crystalsCollected += 1
+		onCrystalCollectedChange()
+		
+	if (body.filename == 'res://Bullet/Bullet.tscn'):
+		ammo += 1
+		onAmmoSet()
 	
 
 func onShootingAnimationFinish():
