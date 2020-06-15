@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Bullet Hit.ogg-6c7f9f22d1ace328dcfd10c0430e2e9e.oggstr"
+
+[deps]
+
+source_file="res://Bacteria/SFX/Enemy - Bullet Hit.ogg"
+dest_files=[ "res://.import/Enemy - Bullet Hit.ogg-6c7f9f22d1ace328dcfd10c0430e2e9e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

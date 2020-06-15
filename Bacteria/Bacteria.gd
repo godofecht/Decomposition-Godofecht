@@ -1,24 +1,35 @@
 extends RigidBody2D
 
-var Health = 5
+export var Health = 5
+export var AmoutOfComponentsGeneratedAtDeath = 5
 
 onready var bulletScene = preload("res://Bullet/Bullet.tscn")
 
+onready var AnimationPlayerNode = $AnimationPlayer
+#SFX
+onready var DeathSFX = $Death
+onready var HitSFX = $Hit
+
+var dead = false
+
 func _on_ImpactArea_body_entered(body: Node) -> void:
+	HitSFX.play()
 	Health -= 1
-	if (Health <= 0):
+	if (Health <= 0 && !dead):
 		onDeath()
 	print("hit")
 
 func onDeath():
+	dead = true
+	DeathSFX.play()
+	AnimationPlayerNode.play("Death")
+	print("DYING")
+
+func onDeathAnimationComplete():
 	print("DEAD")
 	queue_free()
-	generateBacteriaComponent()
-	generateBacteriaComponent()
-	generateBacteriaComponent()
-	generateBacteriaComponent()
-	
-
+	for i in range(AmoutOfComponentsGeneratedAtDeath):
+		generateBacteriaComponent()
 
 func generateBacteriaComponent():
 	var impulseForce = 50

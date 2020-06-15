@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Break Apart.ogg-4704d002015797e6aca0dac51a2ce73b.oggstr"
+
+[deps]
+
+source_file="res://Bacteria/SFX/Enemy - Break Apart.ogg"
+dest_files=[ "res://.import/Enemy - Break Apart.ogg-4704d002015797e6aca0dac51a2ce73b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
