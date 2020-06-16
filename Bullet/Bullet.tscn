@@ -6,23 +6,23 @@
 friction = 0.0
 bounce = 20000.0
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=5]
 radius = 4.56623
 
 [node name="Bullet" type="RigidBody2D"]
@@ -32,10 +32,9 @@ physics_material_override = SubResource( 1 )
 linear_damp = 1.0
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 7 )
-frame = 1
+frames = SubResource( 4 )
 playing = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0149059, -0.12302 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )

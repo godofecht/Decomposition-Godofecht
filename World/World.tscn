@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Cell_wall.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Bacteria/Bacteria.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/World.gd" type="Script" id=6]
 [ext_resource path="res://World/BackgroundSounds/Music 1.wav" type="AudioStream" id=7]
-[ext_resource path="res://Crystal/Enemy - Drop Crystal.ogg" type="AudioStream" id=10]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1238,118 +1237,16 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 72/z_index = 0
 
-[sub_resource type="Animation" id=67]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[sub_resource type="Animation" id=68]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[sub_resource type="Animation" id=69]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[sub_resource type="Animation" id=70]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[sub_resource type="Animation" id=71]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[sub_resource type="Animation" id=72]
-resource_name = "Death"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "onDeathAnimationComplete"
-} ]
-}
-
-[node name="World" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Shadows" type="CanvasModulate" parent="Map"]
+visible = false
+color = Color( 0, 0, 0, 1 )
+
+[node name="Background" type="ColorRect" parent="Map"]
 margin_left = -1347.24
 margin_top = -496.864
 margin_right = 3665.76
@@ -1359,7 +1256,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="Map"]
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 66 )
 cell_size = Vector2( 16, 16 )
@@ -1368,9 +1265,10 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -262139, 62, 0, -262135, 15, 0, -262134, 16, 0, -262133, 16, 0, -262132, 16, 0, -262131, 16, 0, -262130, 16, 0, -262129, 16, 0, -262128, 16, 0, -262127, 16, 0, -262126, 16, 0, -262125, 19, 0, -196599, 23, 0, -196598, 20, 0, -196597, 20, 0, -196596, 20, 0, -196595, 20, 0, -196594, 20, 0, -196593, 20, 0, -196592, 20, 0, -196591, 20, 0, -196590, 20, 0, -196589, 66, 0, -131063, 70, 0, -131062, 25, 0, -131061, 25, 0, -131060, 25, 0, -131059, 25, 0, -131058, 25, 0, -131057, 25, 0, -131056, 25, 0, -131055, 25, 0, -131054, 25, 0, -131053, 66, 0, -65527, 70, 0, -65526, 25, 0, -65525, 25, 0, -65524, 25, 0, -65523, 25, 0, -65522, 25, 0, -65521, 25, 0, -65520, 25, 0, -65519, 25, 0, -65518, 25, 0, -65517, 66, 0, 0, 15, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 7, 16, 0, 8, 16, 0, 9, 60, 0, 10, 25, 0, 11, 25, 0, 12, 25, 0, 13, 45, 0, 14, 72, 0, 15, 72, 0, 16, 46, 0, 17, 25, 0, 18, 25, 0, 19, 66, 0, 65536, 23, 0, 65537, 20, 0, 65538, 32, 0, 65539, 32, 0, 65540, 32, 0, 65541, 20, 0, 65542, 32, 0, 65543, 32, 0, 65544, 32, 0, 65545, 53, 0, 65546, 25, 0, 65547, 25, 0, 65548, 25, 0, 65549, 66, 0, 65550, 62, 0, 65551, 62, 0, 65552, 70, 0, 65553, 25, 0, 65554, 25, 0, 65555, 66, 0, 131072, 23, 0, 131073, 24, 0, 131074, 24, 0, 131075, 24, 0, 131076, 25, 0, 131077, 25, 0, 131078, 25, 0, 131079, 25, 0, 131080, 25, 0, 131081, 25, 0, 131082, 25, 0, 131083, 25, 0, 131084, 25, 0, 131085, 66, 0, 131086, 62, 0, 131087, 62, 0, 131088, 70, 0, 131089, 25, 0, 131090, 25, 0, 131091, 66, 0, 196608, 23, 0, 196609, 24, 0, 196610, 24, 0, 196611, 24, 0, 196612, 24, 0, 196613, 24, 0, 196614, 24, 0, 196615, 25, 0, 196616, 25, 0, 196617, 25, 0, 196618, 25, 0, 196619, 25, 0, 196620, 25, 0, 196621, 67, 0, 196622, 68, 0, 196623, 68, 0, 196624, 69, 0, 196625, 25, 0, 196626, 25, 0, 196627, 66, 0, 262144, 30, 0, 262145, 28, 0, 262146, 28, 0, 262147, 28, 0, 262148, 28, 0, 262149, 28, 0, 262150, 28, 0, 262151, 28, 0, 262152, 28, 0, 262153, 65, 0, 262154, 25, 0, 262155, 25, 0, 262156, 25, 0, 262157, 52, 0, 262158, 53, 0, 262159, 53, 0, 262160, 53, 0, 262161, 25, 0, 262162, 25, 0, 262163, 38, 0, 262164, 16, 0, 262165, 16, 0, 262166, 16, 0, 262167, 16, 0, 262168, 16, 0, 262169, 16, 0, 262170, 19, 0, 327689, 70, 0, 327690, 25, 0, 327691, 25, 0, 327692, 25, 0, 327693, 25, 0, 327694, 25, 0, 327695, 25, 0, 327696, 25, 0, 327697, 25, 0, 327698, 25, 0, 327699, 52, 0, 327700, 32, 0, 327701, 32, 0, 327702, 32, 0, 327703, 32, 0, 327704, 32, 0, 327705, 32, 0, 327706, 66, 0, 393225, 70, 0, 393226, 25, 0, 393227, 25, 0, 393228, 25, 0, 393229, 25, 0, 393230, 25, 0, 393231, 25, 0, 393232, 25, 0, 393233, 25, 0, 393234, 25, 0, 393235, 25, 0, 393236, 25, 0, 393237, 25, 0, 393238, 25, 0, 393239, 25, 0, 393240, 25, 0, 393241, 25, 0, 393242, 66, 0, 458761, 70, 0, 458762, 25, 0, 458763, 25, 0, 458764, 25, 0, 458765, 25, 0, 458766, 25, 0, 458767, 25, 0, 458768, 25, 0, 458769, 25, 0, 458770, 25, 0, 458771, 25, 0, 458772, 25, 0, 458773, 25, 0, 458774, 25, 0, 458775, 25, 0, 458776, 25, 0, 458777, 25, 0, 458778, 66, 0, 524297, 30, 0, 524298, 28, 0, 524299, 28, 0, 524300, 28, 0, 524301, 28, 0, 524302, 28, 0, 524303, 28, 0, 524304, 28, 0, 524305, 28, 0, 524306, 28, 0, 524307, 28, 0, 524308, 28, 0, 524309, 28, 0, 524310, 28, 0, 524311, 65, 0, 524312, 25, 0, 524313, 25, 0, 524314, 66, 0, 589824, 15, 0, 589825, 68, 0, 589826, 68, 0, 589827, 68, 0, 589828, 68, 0, 589829, 68, 0, 589830, 68, 0, 589831, 68, 0, 589832, 68, 0, 589833, 68, 0, 589834, 68, 0, 589835, 68, 0, 589836, 68, 0, 589837, 68, 0, 589838, 68, 0, 589839, 68, 0, 589840, 68, 0, 589841, 68, 0, 589842, 68, 0, 589843, 68, 0, 589844, 68, 0, 589845, 68, 0, 589846, 68, 0, 589847, 60, 0, 589848, 25, 0, 589849, 25, 0, 589850, 38, 0, 589851, 16, 0, 589852, 16, 0, 589853, 16, 0, 589854, 19, 0, 655360, 70, 0, 655361, 20, 0, 655362, 20, 0, 655363, 20, 0, 655364, 20, 0, 655365, 20, 0, 655366, 20, 0, 655367, 20, 0, 655368, 20, 0, 655369, 20, 0, 655370, 20, 0, 655371, 20, 0, 655372, 20, 0, 655373, 20, 0, 655374, 20, 0, 655375, 20, 0, 655376, 20, 0, 655377, 20, 0, 655378, 20, 0, 655379, 20, 0, 655380, 20, 0, 655381, 20, 0, 655382, 20, 0, 655383, 54, 0, 655384, 25, 0, 655385, 25, 0, 655386, 52, 0, 655387, 54, 0, 655388, 54, 0, 655389, 54, 0, 655390, 66, 0, 720896, 70, 0, 720897, 25, 0, 720898, 25, 0, 720899, 25, 0, 720900, 25, 0, 720901, 25, 0, 720902, 25, 0, 720903, 25, 0, 720904, 25, 0, 720905, 25, 0, 720906, 25, 0, 720907, 25, 0, 720908, 25, 0, 720909, 25, 0, 720910, 25, 0, 720911, 25, 0, 720912, 25, 0, 720913, 25, 0, 720914, 25, 0, 720915, 25, 0, 720916, 25, 0, 720917, 25, 0, 720918, 25, 0, 720919, 25, 0, 720920, 25, 0, 720921, 25, 0, 720922, 25, 0, 720923, 25, 0, 720924, 25, 0, 720925, 25, 0, 720926, 66, 0, 786432, 70, 0, 786433, 25, 0, 786434, 25, 0, 786435, 25, 0, 786436, 25, 0, 786437, 25, 0, 786438, 25, 0, 786439, 25, 0, 786440, 25, 0, 786441, 25, 0, 786442, 25, 0, 786443, 25, 0, 786444, 25, 0, 786445, 25, 0, 786446, 25, 0, 786447, 25, 0, 786448, 25, 0, 786449, 25, 0, 786450, 25, 0, 786451, 25, 0, 786452, 25, 0, 786453, 25, 0, 786454, 25, 0, 786455, 25, 0, 786456, 25, 0, 786457, 25, 0, 786458, 25, 0, 786459, 25, 0, 786460, 25, 0, 786461, 25, 0, 786462, 66, 0, 851968, 70, 0, 851969, 25, 0, 851970, 25, 0, 851971, 25, 0, 851972, 25, 0, 851973, 25, 0, 851974, 25, 0, 851975, 25, 0, 851976, 25, 0, 851977, 25, 0, 851978, 25, 0, 851979, 25, 0, 851980, 25, 0, 851981, 25, 0, 851982, 25, 0, 851983, 25, 0, 851984, 25, 0, 851985, 25, 0, 851986, 25, 0, 851987, 25, 0, 851988, 25, 0, 851989, 25, 0, 851990, 25, 0, 851991, 25, 0, 851992, 25, 0, 851993, 25, 0, 851994, 25, 0, 851995, 25, 0, 851996, 25, 0, 851997, 25, 0, 851998, 66, 0, 917504, 70, 0, 917505, 25, 0, 917506, 25, 0, 917507, 25, 0, 917508, 25, 0, 917509, 25, 0, 917510, 25, 0, 917511, 25, 0, 917512, 25, 0, 917513, 25, 0, 917514, 25, 0, 917515, 25, 0, 917516, 25, 0, 917517, 25, 0, 917518, 25, 0, 917519, 25, 0, 917520, 25, 0, 917521, 25, 0, 917522, 25, 0, 917523, 25, 0, 917524, 25, 0, 917525, 25, 0, 917526, 25, 0, 917527, 25, 0, 917528, 25, 0, 917529, 25, 0, 917530, 25, 0, 917531, 25, 0, 917532, 25, 0, 917533, 25, 0, 917534, 66, 0, 983040, 30, 0, 983041, 65, 0, 983042, 25, 0, 983043, 25, 0, 983044, 44, 0, 983045, 28, 0, 983046, 28, 0, 983047, 28, 0, 983048, 28, 0, 983049, 28, 0, 983050, 28, 0, 983051, 28, 0, 983052, 28, 0, 983053, 28, 0, 983054, 28, 0, 983055, 28, 0, 983056, 28, 0, 983057, 28, 0, 983058, 28, 0, 983059, 28, 0, 983060, 28, 0, 983061, 28, 0, 983062, 28, 0, 983063, 28, 0, 983064, 28, 0, 983065, 28, 0, 983066, 28, 0, 983067, 28, 0, 983068, 28, 0, 983069, 28, 0, 983070, 27, 0, 1048577, 70, 0, 1048578, 25, 0, 1048579, 25, 0, 1048580, 66, 0, 1114113, 70, 0, 1114114, 25, 0, 1114115, 25, 0, 1114116, 66, 0, 1245183, 15, 0, 1179648, 58, 0, 1179649, 34, 0, 1179650, 25, 0, 1179651, 25, 0, 1179652, 38, 0, 1179653, 58, 0, 1179654, 19, 0, 1310719, 70, 0, 1245184, 20, 0, 1245185, 53, 0, 1245186, 25, 0, 1245187, 25, 0, 1245188, 52, 0, 1245189, 20, 0, 1245190, 66, 0, 1376255, 70, 0, 1310720, 25, 0, 1310721, 25, 0, 1310722, 25, 0, 1310723, 25, 0, 1310724, 25, 0, 1310725, 25, 0, 1310726, 66, 0, 1441791, 70, 0, 1376256, 25, 0, 1376257, 25, 0, 1376258, 25, 0, 1376259, 25, 0, 1376260, 25, 0, 1376261, 25, 0, 1376262, 66, 0, 1507327, 30, 0, 1441792, 28, 0, 1441793, 28, 0, 1441794, 28, 0, 1441795, 28, 0, 1441796, 28, 0, 1441797, 28, 0, 1441798, 27, 0 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="UI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.149902
@@ -1379,7 +1277,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ammo" type="Label" parent="CanvasLayer/HUD"]
+[node name="Ammo" type="Label" parent="UI/HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -1393,100 +1291,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="YSort - Entities" type="YSort" parent="."]
+
+[node name="Player" parent="YSort - Entities" instance=ExtResource( 1 )]
 position = Vector2( 79.197, 91.3672 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="YSort - Entities/Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
-[node name="Light2D3" type="Light2D" parent="Player"]
+[node name="Light2D3" type="Light2D" parent="YSort - Entities/Player"]
 position = Vector2( -0.730362, 0.0887299 )
 scale = Vector2( 1.89229, 1.89229 )
 texture = ExtResource( 3 )
 energy = 1.3
 
-[node name="CrystalDropSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+[node name="Enemies" type="YSort" parent="YSort - Entities"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0, 0, 0, 1 )
-
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
+[node name="Enemy" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 395, -22.3 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+[node name="Enemy2" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 364.987, 200.95 )
 
-[node name="Sprite" parent="Enemy2" index="0"]
-frame = 14
-
-[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+[node name="Enemy3" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 477.041, 228.821 )
 
-[node name="Sprite" parent="Enemy3" index="0"]
-frame = 12
-
-[node name="AnimationPlayer" parent="Enemy3" index="6"]
-anims/Death = SubResource( 67 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 5 )]
+[node name="Enemy4" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 551.554, 176.492 )
 
-[node name="AnimationPlayer" parent="Enemy4" index="6"]
-anims/Death = SubResource( 68 )
-
-[node name="Enemy5" parent="." instance=ExtResource( 5 )]
+[node name="Enemy5" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 518.554, 404.492 )
 
-[node name="Sprite" parent="Enemy5" index="0"]
-frame = 14
-
-[node name="AnimationPlayer" parent="Enemy5" index="6"]
-anims/Death = SubResource( 69 )
-
-[node name="Enemy6" parent="." instance=ExtResource( 5 )]
+[node name="Enemy6" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 261.554, 444.492 )
 
-[node name="Sprite" parent="Enemy6" index="0"]
-frame = 14
-
-[node name="AnimationPlayer" parent="Enemy6" index="6"]
-anims/Death = SubResource( 70 )
-
-[node name="Enemy7" parent="." instance=ExtResource( 5 )]
+[node name="Enemy7" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 73.1327, 404.492 )
 
-[node name="Sprite" parent="Enemy7" index="0"]
-frame = 14
-
-[node name="AnimationPlayer" parent="Enemy7" index="6"]
-anims/Death = SubResource( 71 )
-
-[node name="Enemy8" parent="." instance=ExtResource( 5 )]
+[node name="Enemy8" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 96.2906, 662.386 )
 
-[node name="Sprite" parent="Enemy8" index="0"]
-frame = 14
+[node name="SFX" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" parent="Enemy8" index="6"]
-anims/Death = SubResource( 72 )
-
-[node name="MusicBG" type="AudioStreamPlayer" parent="."]
+[node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
 autoplay = true
-[connection signal="AmmoChange" from="Player" to="." method="_on_Player_AmmoChange"]
-
-[editable path="Enemy2"]
-
-[editable path="Enemy3"]
-
-[editable path="Enemy4"]
-
-[editable path="Enemy5"]
-
-[editable path="Enemy6"]
-
-[editable path="Enemy7"]
-
-[editable path="Enemy8"]
+[connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]

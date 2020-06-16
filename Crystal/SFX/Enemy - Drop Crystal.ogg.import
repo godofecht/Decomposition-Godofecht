@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Drop Crystal.ogg-85bb01cc8f62e408df8b82a0fe6452d8.oggstr"
+
+[deps]
+
+source_file="res://Crystal/SFX/Enemy - Drop Crystal.ogg"
+dest_files=[ "res://.import/Enemy - Drop Crystal.ogg-85bb01cc8f62e408df8b82a0fe6452d8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

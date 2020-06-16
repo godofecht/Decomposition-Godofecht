@@ -6,12 +6,10 @@ export var AmoutOfComponentsGeneratedAtDeath = 5
 onready var bulletScene = preload("res://Bullet/Bullet.tscn")
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
 
-onready var AnimationPlayerNode = $AnimationPlayer
+onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 #SFX
-onready var DeathSFX = $Death
-onready var HitSFX = $Hit
-
-onready var CrystalDropSFX = $"../CrystalDropSFX"
+onready var DeathSFX = $SFX/Death
+onready var HitSFX = $SFX/Hit
 
 var dead = false
 
@@ -42,7 +40,6 @@ func onDeathAnimationComplete():
 	print("DEAD")
 	queue_free()
 	generateComponent(crystalScene)
-	CrystalDropSFX.play()
 	for i in range(AmoutOfComponentsGeneratedAtDeath):
 		generateComponent(bulletScene)
 

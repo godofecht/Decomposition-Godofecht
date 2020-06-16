@@ -5,8 +5,8 @@ export var MAX_SPEED = 200
 export var FRICTION = 800
 export var BULLET_SPEED = 400
 
-onready var AnimationT = $AnimationTree
-onready var AnimationState = $AnimationTree.get("parameters/playback")
+onready var AnimationT = $SpriteNodes/AnimationTree
+onready var AnimationState = AnimationT.get("parameters/playback")
 
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
 onready var AbsorbCollision = $AbsorbArea/AbsorbCollision
@@ -15,13 +15,13 @@ onready var SuctionEmitter2 = $AbsorbArea/SuctionEmitter2
 onready var SuctionEmitter3 = $AbsorbArea/SuctionEmitter3
 
 #SFX
-onready var ShootingSFX = $ShootingSFX
-onready var OnSuctionSFX = $OnSuctionSFX
-onready var OnSuctionStartSFX = $SuctionPowerUpSFX
-onready var OnSuctionFinishSFX = $SuctionPowerDownSFX
-onready var OnCrystalPickuSFX = $CrystalPickupSFX
-onready var OutOfAmmoSFX = $OutOfAmmo
-onready var FootstepsSFX = $FootstepsSFX
+onready var ShootingSFX = $SFX/ShootingSFX
+onready var OnSuctionSFX = $SFX/OnSuctionSFX
+onready var OnSuctionStartSFX = $SFX/SuctionPowerUpSFX
+onready var OnSuctionFinishSFX = $SFX/SuctionPowerDownSFX
+onready var OnCrystalPickuSFX = $SFX/CrystalPickupSFX
+onready var OutOfAmmoSFX = $SFX/OutOfAmmo
+onready var FootstepsSFX = $SFX/FootstepsSFX
 
 export(int) var ammo = 3
 export(int) var crystalsCollected = 0

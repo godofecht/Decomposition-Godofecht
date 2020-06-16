@@ -15,7 +15,7 @@
 resource_name = "Shooting"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpriteNodes/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -46,7 +46,7 @@ resource_name = "Suction"
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpriteNodes/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -63,7 +63,7 @@ resource_name = "Walking"
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("SpriteNodes/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -121,18 +121,21 @@ polygon = PoolVector2Array( -7.62039, 2.12623, 6.5433, 2.77847, 4.33739, -1.6333
 collision_mask = 2
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="SpriteNodes" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="SpriteNodes"]
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 2
-frame = 1
+frame = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteNodes"]
+root_node = NodePath("../..")
 anims/Shooting = SubResource( 1 )
 anims/Suction = SubResource( 2 )
 anims/Walking = SubResource( 3 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="SpriteNodes"]
 tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 12 )
@@ -190,18 +193,6 @@ spread = 0.0
 gravity = Vector2( -25, 70 )
 color_ramp = SubResource( 15 )
 
-[node name="ShootingSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-
-[node name="OnSuctionSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-
-[node name="SuctionPowerUpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-
-[node name="SuctionPowerDownSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -2.9696, 7.15099 )
 scale = Vector2( 0.105507, 0.105507 )
@@ -211,17 +202,31 @@ shadow_enabled = true
 shadow_color = Color( 0.980392, 0.980392, 0.980392, 0 )
 shadow_filter_smooth = 1.0
 
-[node name="CrystalPickupSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-
-[node name="OutOfAmmo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 occluder = SubResource( 16 )
 
-[node name="FootstepsSFX" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="FootstepsSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 10 )
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[node name="OutOfAmmo" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="CrystalPickupSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="SuctionPowerDownSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="ShootingSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 4 )
+
+[node name="OnSuctionSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 2 )
+
+[node name="SuctionPowerUpSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 5 )
+[connection signal="animation_finished" from="SpriteNodes/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AbsorbArea" to="." method="_on_AbsorbArea_body_entered"]
