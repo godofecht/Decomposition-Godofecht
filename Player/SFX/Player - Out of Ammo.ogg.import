@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Player - Out of Ammo.ogg-11c16f502b5fcb5b8bc3a884e645e9b4.oggstr"
+
+[deps]
+
+source_file="res://Player/SFX/Player - Out of Ammo.ogg"
+dest_files=[ "res://.import/Player - Out of Ammo.ogg-11c16f502b5fcb5b8bc3a884e645e9b4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

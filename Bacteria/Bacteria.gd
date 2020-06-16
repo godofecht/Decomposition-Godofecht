@@ -11,6 +11,8 @@ onready var AnimationPlayerNode = $AnimationPlayer
 onready var DeathSFX = $Death
 onready var HitSFX = $Hit
 
+onready var CrystalDropSFX = $"../CrystalDropSFX"
+
 var dead = false
 
 func _ready() -> void:
@@ -37,6 +39,7 @@ func onDeathAnimationComplete():
 	print("DEAD")
 	queue_free()
 	generateComponent(crystalScene)
+	CrystalDropSFX.play()
 	for i in range(AmoutOfComponentsGeneratedAtDeath):
 		generateComponent(bulletScene)
 

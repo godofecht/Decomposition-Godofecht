@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Player - Crystal Pickup.ogg-8cc40e8edd83817753087b1d962a0a93.oggstr"
+
+[deps]
+
+source_file="res://Player/SFX/Player - Crystal Pickup.ogg"
+dest_files=[ "res://.import/Player - Crystal Pickup.ogg-8cc40e8edd83817753087b1d962a0a93.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

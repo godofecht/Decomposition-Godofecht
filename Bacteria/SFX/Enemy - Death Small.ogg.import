@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Death Small.ogg-23a77da45379240835b87cac3dd4ba53.oggstr"
+
+[deps]
+
+source_file="res://Bacteria/SFX/Enemy - Death Small.ogg"
+dest_files=[ "res://.import/Enemy - Death Small.ogg-23a77da45379240835b87cac3dd4ba53.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

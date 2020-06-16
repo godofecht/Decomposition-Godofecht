@@ -19,6 +19,8 @@ onready var ShootingSFX = $ShootingSFX
 onready var OnSuctionSFX = $OnSuctionSFX
 onready var OnSuctionStartSFX = $SuctionPowerUpSFX
 onready var OnSuctionFinishSFX = $SuctionPowerDownSFX
+onready var OnCrystalPickuSFX = $CrystalPickupSFX
+onready var OutOfAmmoSFX = $OutOfAmmo
 
 export(int) var ammo = 3
 export(int) var crystalsCollected = 0
@@ -78,7 +80,9 @@ func move_state(delta: float):
 	move()
 
 func shoot():
-	if (ammo <= 0): return
+	if (ammo <= 0):
+		OutOfAmmoSFX.play()
+		return
 	if !AbsorbCollision.disabled: return
 	AnimationState.travel("Shooting")
 	ammo = ammo - 1
@@ -126,6 +130,7 @@ func _on_AbsorbArea_body_entered(body: Node) -> void:
 	if (body.filename == 'res://Crystal/Crystal.tscn'):
 		print("Absorbed a crystal")
 		crystalsCollected += 1
+		OnCrystalPickuSFX.play()
 		onCrystalCollectedChange()
 		
 	if (body.filename == 'res://Bullet/Bullet.tscn'):

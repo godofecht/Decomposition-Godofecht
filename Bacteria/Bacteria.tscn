@@ -6,14 +6,14 @@
 [ext_resource path="res://Bacteria/SFX/Enemy - Break Apart.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Bacteria/bacteria.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0.50613, 0.485907 )
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 0.019449
 height = 0.0431613
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Death"
 length = 2.0
 tracks/0/type = "method"
@@ -31,7 +31,7 @@ tracks/0/keys = {
 } ]
 }
 
-[node name="Node2D" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource( 1 )
@@ -44,7 +44,7 @@ hframes = 2
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0649073, -0.34737 )
 scale = Vector2( 20, 20 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="ImpactArea" type="Area2D" parent="."]
 scale = Vector2( 20, 20 )
@@ -54,7 +54,7 @@ collision_mask = 8
 [node name="Collision" type="CollisionShape2D" parent="ImpactArea"]
 position = Vector2( 0.00935548, -0.00854203 )
 scale = Vector2( 20, 20 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -68,5 +68,5 @@ max_distance = 200000.0
 attenuation = 0.732043
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 5 )
+anims/Death = SubResource( 3 )
 [connection signal="body_entered" from="ImpactArea" to="." method="_on_ImpactArea_body_entered"]
