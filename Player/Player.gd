@@ -21,6 +21,7 @@ onready var OnSuctionStartSFX = $SuctionPowerUpSFX
 onready var OnSuctionFinishSFX = $SuctionPowerDownSFX
 onready var OnCrystalPickuSFX = $CrystalPickupSFX
 onready var OutOfAmmoSFX = $OutOfAmmo
+onready var FootstepsSFX = $FootstepsSFX
 
 export(int) var ammo = 3
 export(int) var crystalsCollected = 0
@@ -63,9 +64,14 @@ func move_state(delta: float):
 	rotation_degrees = rad2deg(get_angle_to(get_global_mouse_position()) + rotation) + 90
 	
 	if input_vector != Vector2.ZERO:
+		if (!FootstepsSFX.playing):
+			FootstepsSFX.play()
+
 		direction_vector = input_vector
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
+		if (FootstepsSFX.playing):
+			FootstepsSFX.stop()
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
 	if Input.is_action_just_pressed("PRIMARY"):
