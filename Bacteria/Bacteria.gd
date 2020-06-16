@@ -15,6 +15,9 @@ onready var CrystalDropSFX = $"../CrystalDropSFX"
 
 var dead = false
 
+func _integrate_forces(state):
+	inertia = 1000000
+
 func _ready() -> void:
 	var impulseForce = 25
 	var direction_rotation = deg2rad((randi()%360+0))
