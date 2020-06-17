@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Shoot Small.ogg-308b11e35ca5f0f1ebe57e18607fc736.oggstr"
+
+[deps]
+
+source_file="res://Turret/SFX/Enemy - Shoot Small.ogg"
+dest_files=[ "res://.import/Enemy - Shoot Small.ogg-308b11e35ca5f0f1ebe57e18607fc736.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Vocal 1.ogg-72f25d51815df2aff9fc9b88980bfdef.oggstr"
+
+[deps]
+
+source_file="res://Turret/SFX/Enemy - Vocal 1.ogg"
+dest_files=[ "res://.import/Enemy - Vocal 1.ogg-72f25d51815df2aff9fc9b88980bfdef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

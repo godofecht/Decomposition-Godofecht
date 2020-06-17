@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Break Apart.ogg-1507c6697f175b5d4ba509f72d721b91.oggstr"
+
+[deps]
+
+source_file="res://Turret/SFX/Enemy - Break Apart.ogg"
+dest_files=[ "res://.import/Enemy - Break Apart.ogg-1507c6697f175b5d4ba509f72d721b91.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
