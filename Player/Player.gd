@@ -123,6 +123,7 @@ func shoot():
 	onAmmoSet()
 	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
+	bullet.set_collision_mask_bit(2,true)
 	bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
 	get_parent().add_child(bullet)
@@ -159,20 +160,21 @@ func move():
 
 
 func _on_AbsorbArea_body_entered(body: Node) -> void:
-	
-	if(body.color == "green"):
-		print("Absorbed something")
-		body.queue_free()
-		OnSuctionSFX.play()
-		if (body.filename == 'res://Bullet/Bullet.tscn'):
-			ammo += 1
-			onAmmoSet()
-	
-	if (body.filename == 'res://Crystal/Crystal.tscn'):
+	if (body.filename == 'res://Bullet/Bullet.tscn'):
+		ammo += 1
+		onAmmoSet()
+		if(body.color == "green"):
+			print("Absorbed something")
+			body.queue_free()
+			OnSuctionSFX.play()
+	elif (body.filename == 'res://Crystal/Crystal.tscn'):
 		print("Absorbed a crystal")
 		crystalsCollected += 1
 		OnCrystalPickuSFX.play()
 		onCrystalCollectedChange()
+		print("Absorbed something")
+		body.queue_free()
+		OnSuctionSFX.play()
 	
 
 func onShootingAnimationFinish():

@@ -22,6 +22,7 @@ onready var ShootingSFX = $SFX/Shoot
 
 var dead = false
 var bIncrementRecoveryTimer = false;
+var lerpVal = 1.0
 
 var visionDistance = 600
 var recoverytimer = 0
@@ -52,6 +53,8 @@ func _on_ImpactArea_body_entered(body: Node) -> void:
 			onDeath()
 		print("hit")
 		bIncrementRecoveryTimer = true;
+		
+		lerpVal = 0.0
 	
 
 func shoot():
@@ -94,7 +97,21 @@ func _process(delta):
 			shoot()
 			shootIntervalTimer = 0
 		followPlayer(player,delta)
+		
+		
+		
+		
+	if(lerpVal > 1.0):
+		lerpVal = 1.0
+	else:
+		lerpVal += 1.0/ 100.0
+	$Sprite.modulate = Color(1,lerpVal,lerpVal)
+	
+	
 	update()
+	
+	
+	
 	
 func _physics_process(delta):
 	var space_state = get_world_2d().direct_space_state
