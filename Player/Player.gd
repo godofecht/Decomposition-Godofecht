@@ -184,7 +184,10 @@ func onShootingAnimationFinish():
 func getVectorToTransform(target):
 	return -(get_transform().origin - target.get_transform().origin).normalized()
 
+
+
 func _on_ImpactArea_body_entered(body):
+	print(body.name)
 	if (body.filename == 'res://Bacteria/Bacteria.tscn'):
 		take_damage(1)
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
@@ -193,6 +196,7 @@ func _on_ImpactArea_body_entered(body):
 
 	elif(body.filename == 'res://Turret/Turret.tscn'):
 		pass
+		
 	elif(body.color == "blue"):
 		take_damage(1)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://World/NextLevelMarker.gd" type="Script" id=1]
 [ext_resource path="res://World/World.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Turret/Turret.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Bacteria/Bacteria.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/DoorCollider.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -521,6 +522,9 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 15.1749, 17.0016 )
 
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 15.119, 20.3038 )
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -659,5 +663,30 @@ script = ExtResource( 1 )
 [node name="NextLevelMarker" type="CollisionShape2D" parent="NextLevelArea"]
 position = Vector2( 0, -0.487671 )
 shape = SubResource( 50 )
+
+[node name="DoorCollider" type="RigidBody2D" parent="."]
+collision_mask = 13
+custom_integrator = true
+continuous_cd = 2
+contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 10 )
+
+[node name="DoorCollider" type="CollisionShape2D" parent="DoorCollider"]
+position = Vector2( 783.425, 268.246 )
+shape = SubResource( 51 )
+
+[node name="DoorCollider2" type="StaticBody2D" parent="."]
+
+[node name="DoorCollider" type="CollisionShape2D" parent="DoorCollider2"]
+position = Vector2( 879.609, -84.6096 )
+shape = SubResource( 51 )
+
+[node name="DoorCollider3" type="StaticBody2D" parent="."]
+
+[node name="DoorCollider" type="CollisionShape2D" parent="DoorCollider3"]
+position = Vector2( 622.751, -852.789 )
+shape = SubResource( 51 )
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="body_entered" from="NextLevelArea" to="NextLevelArea" method="_on_NextLevelArea_body_entered"]

@@ -8,3 +8,4 @@ func _on_Player_AmmoChange(value) -> void:
 
 func _ready() -> void:
 	Shadows.visible = true
+
