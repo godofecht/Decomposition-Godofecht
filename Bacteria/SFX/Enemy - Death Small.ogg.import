@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Enemy - Death Small.ogg-23a77da45379240835b87cac3dd4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

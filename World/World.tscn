@@ -1272,7 +1272,6 @@ tile_data = PoolIntArray( -262139, 62, 0, -262135, 15, 0, -262134, 16, 0, -26213
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="UI"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.149902
@@ -1348,6 +1347,7 @@ collision_mask = 11
 
 [node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
+volume_db = -20.0
 autoplay = true
 
 [node name="NextLevelArea" type="Area2D" parent="."]

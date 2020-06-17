@@ -7,7 +7,7 @@ onready var bulletScene = preload("res://Bullet/Bullet.tscn")
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
 onready var Bullet_Scene = preload("res://Bullet/Bullet.tscn")
 
-onready var AnimationPlayerNode = $Sprite/AnimationPlayer
+onready var AnimationPlayerNode = $Sprite/SpriteAnimations
 
 
 
@@ -116,6 +116,9 @@ func _draw():
 
 
 func followPlayer(player,delta):
+	if (AnimationPlayerNode.current_animation != "Death"):
+		AnimationPlayerNode.play("Movement")
+	
 	var direction = getVectorToTransform(player)
 	velocity = velocity.move_toward(direction * 1, 1 * delta)
 	position += velocity;

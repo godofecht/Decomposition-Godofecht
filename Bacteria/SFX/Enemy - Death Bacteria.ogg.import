@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Death Bacteria.ogg-05be083ca6665a859eb295c3d692ecf0.oggstr"
+
+[deps]
+
+source_file="res://Bacteria/SFX/Enemy - Death Bacteria.ogg"
+dest_files=[ "res://.import/Enemy - Death Bacteria.ogg-05be083ca6665a859eb295c3d692ecf0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
