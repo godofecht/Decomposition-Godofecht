@@ -1,8 +1,9 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Cell_wall.png" type="Texture" id=2]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=3]
+[ext_resource path="res://World/NextLevelMarker.gd" type="Script" id=4]
 [ext_resource path="res://Bacteria/Bacteria.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/World.gd" type="Script" id=6]
 [ext_resource path="res://World/BackgroundSounds/Music 1.wav" type="AudioStream" id=7]
@@ -1237,6 +1238,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 72/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=67]
+extents = Vector2( 167.494, 68.2953 )
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -1301,7 +1305,7 @@ current = true
 zoom = Vector2( 0.4, 0.4 )
 
 [node name="Light2D3" type="Light2D" parent="YSort - Entities/Player"]
-position = Vector2( -0.730362, 0.0887299 )
+position = Vector2( -0.730362, -0.541519 )
 scale = Vector2( 1.89229, 1.89229 )
 texture = ExtResource( 3 )
 energy = 1.3
@@ -1310,31 +1314,47 @@ energy = 1.3
 
 [node name="Enemy" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 395, -22.3 )
+collision_mask = 11
 
 [node name="Enemy2" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 364.987, 200.95 )
+collision_mask = 11
 
 [node name="Enemy3" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 477.041, 228.821 )
+collision_mask = 11
 
 [node name="Enemy4" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 551.554, 176.492 )
+collision_mask = 11
 
 [node name="Enemy5" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 518.554, 404.492 )
+collision_mask = 11
 
 [node name="Enemy6" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 261.554, 444.492 )
+collision_mask = 11
 
 [node name="Enemy7" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 73.1327, 404.492 )
+collision_mask = 11
 
 [node name="Enemy8" parent="YSort - Entities/Enemies" instance=ExtResource( 5 )]
 position = Vector2( 96.2906, 662.386 )
+collision_mask = 11
 
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="NextLevelArea" type="Area2D" parent="."]
+position = Vector2( 97.4284, 670.971 )
+script = ExtResource( 4 )
+
+[node name="NextLevelMarker" type="CollisionShape2D" parent="NextLevelArea"]
+shape = SubResource( 67 )
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
+[connection signal="body_entered" from="NextLevelArea" to="NextLevelArea" method="_on_NextLevelArea_body_entered"]
