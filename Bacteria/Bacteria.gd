@@ -43,12 +43,14 @@ func _ready() -> void:
 	
 
 func _on_ImpactArea_body_entered(body: Node) -> void:
-	HitSFX.play()
-	Health -= 1
-	if (Health <= 0 && !dead):
-		onDeath()
-	print("hit")
-	bIncrementRecoveryTimer = true;
+	
+	if(body.color == "green"):
+		HitSFX.play()
+		Health -= 1
+		if (Health <= 0 && !dead):
+			onDeath()
+		print("hit")
+		bIncrementRecoveryTimer = true;
 	
 
 func shoot():
@@ -57,11 +59,13 @@ func shoot():
 	var bullet = Bullet_Scene.instance()
 	bullet.color = "blue"
 	bullet.bShouldDie = true
-	bullet.set_collision_layer_bit(3,false)
+#	bullet.set_collision_layer_bit(2,false)
+#	bullet.set_collision_layer_bit(3,false)
 	bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	#bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
 	bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), getVectorToTransform(player)*BULLET_SPEED)
 	get_parent().add_child(bullet)
+
 
 func onDeath():
 	dead = true
@@ -78,23 +82,16 @@ func onDeathAnimationComplete():
 		
 
 func _process(delta):
-	
 	shootIntervalTimer += delta
-	
 	if(bIncrementRecoveryTimer):
 		recoverytimer += delta
-	
 	if(recoverytimer >= recoveryTime):
 		recoverytimer = 0
 		bIncrementRecoveryTimer = false
-	
 	if(bCanSeePlayer && recoverytimer == 0):
-		
 		if(shootIntervalTimer >= shootIntervalTime):
 			shoot()
 			shootIntervalTimer = 0
-		
-		
 		followPlayer(player,delta)
 	update()
 	

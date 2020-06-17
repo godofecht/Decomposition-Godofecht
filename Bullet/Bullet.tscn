@@ -7,10 +7,10 @@
 friction = 0.0
 bounce = 20000.0
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=2]
 radius = 4.56623
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "blue"
 length = 0.2
 loop = true
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "green"
 length = 0.2
 loop = true
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "purple"
 length = 0.2
 loop = true
@@ -70,7 +70,7 @@ script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0149059, -0.12302 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -79,6 +79,6 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "green"
-anims/blue = SubResource( 8 )
-anims/green = SubResource( 7 )
-anims/purple = SubResource( 6 )
+anims/blue = SubResource( 3 )
+anims/green = SubResource( 4 )
+anims/purple = SubResource( 5 )

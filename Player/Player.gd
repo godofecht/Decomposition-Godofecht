@@ -27,6 +27,9 @@ onready var FootstepsSFX = $SFX/FootstepsSFX
 export(int) var ammo = 3
 export(int) var crystalsCollected = 0
 
+
+var health = 100
+
 #for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
 func onAmmoSet():
@@ -55,6 +58,10 @@ func _physics_process(delta: float) -> void:
 
 func standing_state(delta: float):
 	pass
+
+
+func take_damage(damage):
+	health -= damage
 
 func move_state(delta: float):
 	var input_vector = Vector2.ZERO
@@ -129,6 +136,8 @@ func stopAbsorbing():
 func move():
 	velocity = move_and_slide(velocity)
 
+
+
 func _on_AbsorbArea_body_entered(body: Node) -> void:
 	print("Absorbed something")
 	body.queue_free()
@@ -148,3 +157,7 @@ func _on_AbsorbArea_body_entered(body: Node) -> void:
 func onShootingAnimationFinish():
 	AnimationState.travel("Walking")
 
+
+
+func _on_ImpactArea_body_entered(body):
+	print("impact")
