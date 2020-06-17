@@ -19,4 +19,4 @@ func _ready():
 
 func _on_NextLevelArea_body_entered(body):
 	if(body.name == "Player"):
-		get_tree().change_scene("res://World/World2.tscn")
+		get_tree().change_scene("res://World/Level2.tscn")
