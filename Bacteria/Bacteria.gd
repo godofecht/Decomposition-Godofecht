@@ -56,6 +56,7 @@ func shoot():
 #	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
 	bullet.color = "blue"
+	bullet.bShouldDie = true
 	bullet.set_collision_layer_bit(3,false)
 	bullet.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	#bullet.apply_impulse(Vector2(0,0).rotated(deg2rad(rotation_degrees + 90)), Vector2(BULLET_SPEED, 0).rotated(deg2rad(rotation_degrees - 90)))
