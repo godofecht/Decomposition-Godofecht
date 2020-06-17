@@ -185,6 +185,8 @@ func onShootingAnimationFinish():
 func _on_ImpactArea_body_entered(body):
 	if (body.filename == 'res://Bacteria/Bacteria.tscn'):
 		take_damage(1)
+	elif (body.filename == 'res://Bosses/BigBoi/BigBoi.tscn'):
+		take_damage(10)
 	elif(body.color == "blue"):
 		take_damage(1)
 	print(body.filename)
