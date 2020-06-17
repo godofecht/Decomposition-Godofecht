@@ -17,7 +17,8 @@ export var BULLET_SPEED = 400
 #SFX
 onready var DeathSFX = $SFX/Death
 onready var HitSFX = $SFX/Hit
-onready var ShootingSFX = $SFX/ShootingSFX
+onready var ShootingSFX = $SFX/Shoot
+
 
 var dead = false
 var bIncrementRecoveryTimer = false;
@@ -55,7 +56,7 @@ func _on_ImpactArea_body_entered(body: Node) -> void:
 
 func shoot():
 	#AnimationState.travel("Shooting")
-#	ShootingSFX.play()
+	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
 	bullet.color = "blue"
 	bullet.bShouldDie = true
