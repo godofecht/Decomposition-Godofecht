@@ -65,8 +65,6 @@ func _process(delta):
 
 func _on_HitArea_body_entered(body: Node) -> void:
 	print("You hit big boi, you get big slap!")
-	#AnimationPlayerNode.play("Attack")
-	#HitSFX.play()
 	Health -= 1
 	VocalsPlayer.stream = load(VocalTracks[randi()%VocalTracks.size()])
 	VocalsPlayer.play()
