@@ -5,6 +5,7 @@ export var MAX_SPEED = 200
 export var FRICTION = 800
 export var BULLET_SPEED = 400
 
+
 onready var AnimationT = $SpriteNodes/AnimationTree
 onready var AnimationState = AnimationT.get("parameters/playback")
 
@@ -146,3 +147,4 @@ func _on_AbsorbArea_body_entered(body: Node) -> void:
 
 func onShootingAnimationFinish():
 	AnimationState.travel("Walking")
+

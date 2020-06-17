@@ -38,7 +38,7 @@ height = 0.00549048
 
 [node name="Bacteria" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 7
 physics_material_override = SubResource( 1 )
 linear_damp = 2.0
 angular_damp = 1.0
