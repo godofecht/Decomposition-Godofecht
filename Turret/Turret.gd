@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 export var Health = 5
 export var AmoutOfComponentsGeneratedAtDeath = 5
@@ -11,7 +11,7 @@ onready var AnimationPlayerNode = $Sprite/SpriteAnimations
 
 
 
-export var BULLET_SPEED = 400
+export var BULLET_SPEED = 300
 
 
 #SFX
@@ -27,22 +27,14 @@ var lerpVal = 1.0
 var visionDistance = 600
 var recoverytimer = 0
 var shootIntervalTimer = 0
-var shootIntervalTime =  5
+var shootIntervalTime =  2
 var recoveryTime = 2
 
 onready var player = get_parent().get_node("../Player")
 var bCanSeePlayer = false;
 var velocity = Vector2.ZERO
 
-func _integrate_forces(state):
-	inertia = 1000000
 
-func _ready() -> void:
-	var impulseForce = 25
-	var direction_rotation = deg2rad((randi()%360+0))
-	apply_impulse(Vector2(20, 0).rotated(direction_rotation),
-				  Vector2(impulseForce, 0).rotated(direction_rotation))
-	
 
 func _on_ImpactArea_body_entered(body: Node) -> void:
 	
@@ -58,7 +50,7 @@ func _on_ImpactArea_body_entered(body: Node) -> void:
 	
 
 func shoot():
-	#AnimationState.travel("Shooting")
+	AnimationPlayerNode.play("Shoot")
 	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
 	bullet.color = "blue"

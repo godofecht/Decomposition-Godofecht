@@ -35,7 +35,8 @@ var bCanSeePlayer = false;
 var velocity = Vector2.ZERO
 
 func _integrate_forces(state):
-	inertia = 1000000
+	pass
+	#inertia = 1000000
 
 func _ready() -> void:
 	var impulseForce = 25
