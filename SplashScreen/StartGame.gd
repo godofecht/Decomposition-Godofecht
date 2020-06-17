@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 func _pressed():
-	get_tree().change_scene("res://World/World.tscn")
+	get_tree().change_scene("res://World/Level1.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
