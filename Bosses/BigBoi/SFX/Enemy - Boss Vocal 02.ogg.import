@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Enemy - Boss Vocal 02.ogg-542c6913bca3251735be2f11dd
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
