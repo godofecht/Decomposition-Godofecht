@@ -4,16 +4,65 @@ onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
 onready var player = get_parent().get_node("../Player")
 
+export var Health = 5
 var dead = false
 var AmoutOfComponentsGeneratedAtDeath = 5
+
+var bIncrementRecoveryTimer = false;
+var lerpVal = 1.0
+
+var bCanSeePlayer = false;
+var visionDistance = 600
+var recoverytimer = 0
+var shootIntervalTimer = 0
+var shootIntervalTime =  3
+var recoveryTime = 2
+
 
 func _ready() -> void:
 	pass # Replace with function body.
 
+	
+func _physics_process(delta):
+	var space_state = get_world_2d().direct_space_state
+	var hit = space_state.intersect_ray(get_transform().origin, get_transform().origin+getVectorToTransform(player)*visionDistance,[self],collision_mask)
+	if hit:
+		if(hit["collider"] == player):
+			bCanSeePlayer = true;
+		else:
+			bCanSeePlayer = false;
+
+
+func _process(delta):
+	shootIntervalTimer += delta
+	if(bIncrementRecoveryTimer):
+		recoverytimer += delta
+	if(recoverytimer >= recoveryTime):
+		recoverytimer = 0
+		bIncrementRecoveryTimer = false
+	if(bCanSeePlayer && recoverytimer == 0):
+		if(shootIntervalTimer >= shootIntervalTime):
+			AnimationPlayerNode.play("Attack")
+			shootIntervalTimer = 0
+
+	if(lerpVal > 1.0):
+		lerpVal = 1.0
+	else:
+		lerpVal += 1.0/ 100.0
+	$Sprite.modulate = Color(1,lerpVal,lerpVal)
+
+	update()
+	
+
 func _on_HitArea_body_entered(body: Node) -> void:
 	print("You hit big boi, you get big slap!")
-	AnimationPlayerNode.play("Attack")
-	pass # Replace with function body.
+	#AnimationPlayerNode.play("Attack")
+	#HitSFX.play()
+	Health -= 1
+	if (Health <= 0 && !dead):
+		onDeath()
+	bIncrementRecoveryTimer = true;
+	lerpVal = 0.0
 
 func onDeath():
 	dead = true
