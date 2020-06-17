@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Boss Vocal 02.ogg-542c6913bca3251735be2f11dd70f298.oggstr"
+
+[deps]
+
+source_file="res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.ogg"
+dest_files=[ "res://.import/Enemy - Boss Vocal 02.ogg-542c6913bca3251735be2f11dd70f298.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

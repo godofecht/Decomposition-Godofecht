@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Enemy - Boss Death Big.ogg-3f0b10fed2d721bac94a8b9a0d2f2c94.oggstr"
+
+[deps]
+
+source_file="res://Bosses/BigBoi/SFX/Enemy - Boss Death Big.ogg"
+dest_files=[ "res://.import/Enemy - Boss Death Big.ogg-3f0b10fed2d721bac94a8b9a0d2f2c94.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
