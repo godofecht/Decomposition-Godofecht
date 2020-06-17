@@ -30,6 +30,8 @@ export(int) var crystalsCollected = 0
 
 var health = 100
 
+var lerpVal = 1.0
+
 #for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
 func onAmmoSet():
@@ -58,10 +60,28 @@ func _physics_process(delta: float) -> void:
 
 func standing_state(delta: float):
 	pass
+	
+
+
+func _process(delta):
+	if(lerpVal > 1.0):
+		lerpVal = 1.0
+	else:
+		lerpVal += 1.0/ 100.0
+	modulate = Color(1,lerpVal,lerpVal)
+	
+	print(health)
+	if(health <= 0):
+		KillPlayer()
+
+func KillPlayer():
+	get_tree().change_scene("res://DeathScreen/DeathScreen.tscn")
 
 
 func take_damage(damage):
 	health -= damage
+	lerpVal = 0
+	modulate = Color(1,lerpVal,lerpVal)
 
 func move_state(delta: float):
 	var input_vector = Vector2.ZERO
@@ -139,19 +159,20 @@ func move():
 
 
 func _on_AbsorbArea_body_entered(body: Node) -> void:
-	print("Absorbed something")
-	body.queue_free()
-	OnSuctionSFX.play()
+	
+	if(body.color == "green"):
+		print("Absorbed something")
+		body.queue_free()
+		OnSuctionSFX.play()
+		if (body.filename == 'res://Bullet/Bullet.tscn'):
+			ammo += 1
+			onAmmoSet()
 	
 	if (body.filename == 'res://Crystal/Crystal.tscn'):
 		print("Absorbed a crystal")
 		crystalsCollected += 1
 		OnCrystalPickuSFX.play()
 		onCrystalCollectedChange()
-		
-	if (body.filename == 'res://Bullet/Bullet.tscn'):
-		ammo += 1
-		onAmmoSet()
 	
 
 func onShootingAnimationFinish():
@@ -160,4 +181,5 @@ func onShootingAnimationFinish():
 
 
 func _on_ImpactArea_body_entered(body):
-	print("impact")
+	if(body.color == "blue"):
+		take_damage(1)
