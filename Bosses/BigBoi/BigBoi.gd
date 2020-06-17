@@ -2,6 +2,7 @@ extends RigidBody2D
 
 onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
+onready var player = get_parent().get_node("../Player")
 
 var dead = false
 var AmoutOfComponentsGeneratedAtDeath = 5
@@ -26,12 +27,16 @@ func onDeathAnimationComplete():
 	for i in range(AmoutOfComponentsGeneratedAtDeath):
 		generateComponent(crystalScene)
 
+func getVectorToTransform(target):
+	return -(get_transform().origin - target.get_transform().origin).normalized()
+
 func impulseToPlayer():
 	print("impulsing")
-	var impulseForce = 1500
+	var impulseForce = 1000
 	var direction_rotation = deg2rad((randi()%360+0) + 90)
+	
 	apply_impulse(Vector2(20, 0).rotated(direction_rotation),
-				  Vector2(impulseForce, 0).rotated(direction_rotation))
+				  getVectorToTransform(player) * impulseForce)
 
 func generateComponent(scene):
 	var impulseForce = 50
