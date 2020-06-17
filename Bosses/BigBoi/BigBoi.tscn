@@ -21,6 +21,6 @@ animations = [ {
 [node name="BigBoi" type="RigidBody2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 playing = true
