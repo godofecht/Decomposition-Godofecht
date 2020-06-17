@@ -190,14 +190,14 @@ func _on_ImpactArea_body_entered(body):
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
 	elif (body.filename == 'res://Bosses/BigBoi/BigBoi.tscn'):
 		take_damage(10)
-<<<<<<< HEAD
+
 	elif(body.filename == 'res://Turret/Turret.tscn'):
 		pass
 	elif(body.color == "blue"):
 		take_damage(1)
-=======
+
 	elif (body.filename == 'res://Bullet/Bullet.tscn'):
 		if(body.color == "blue"):
 			take_damage(1)
->>>>>>> 99b111e9c0a7b77a800a59ef174482fa34300d3b
+
 	print(body.filename)
