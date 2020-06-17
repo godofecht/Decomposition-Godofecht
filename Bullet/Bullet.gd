@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(delta):
 	if(bShouldDie):
 		life_timer += delta
-		print(life_timer)
+#		print(life_timer)
 
 	if(life_timer >= lifespan):
 		life_timer = 0
