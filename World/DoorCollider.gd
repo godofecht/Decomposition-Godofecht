@@ -8,7 +8,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	queue_free()
 
 func _physics_process(delta:float):
 	print(get_colliding_bodies())

@@ -666,6 +666,7 @@ shape = SubResource( 50 )
 
 [node name="DoorCollider" type="RigidBody2D" parent="."]
 collision_mask = 13
+mode = 1
 custom_integrator = true
 continuous_cd = 2
 contacts_reported = 1
@@ -677,13 +678,17 @@ script = ExtResource( 10 )
 position = Vector2( 783.425, 268.246 )
 shape = SubResource( 51 )
 
-[node name="DoorCollider2" type="StaticBody2D" parent="."]
+[node name="DoorCollider2" type="RigidBody2D" parent="."]
+collision_mask = 13
+script = ExtResource( 10 )
 
 [node name="DoorCollider" type="CollisionShape2D" parent="DoorCollider2"]
 position = Vector2( 879.609, -84.6096 )
 shape = SubResource( 51 )
 
-[node name="DoorCollider3" type="StaticBody2D" parent="."]
+[node name="DoorCollider3" type="RigidBody2D" parent="."]
+collision_mask = 13
+script = ExtResource( 10 )
 
 [node name="DoorCollider" type="CollisionShape2D" parent="DoorCollider3"]
 position = Vector2( 622.751, -852.789 )
