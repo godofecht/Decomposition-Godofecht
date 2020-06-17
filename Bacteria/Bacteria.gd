@@ -95,7 +95,7 @@ func _process(delta):
 		bIncrementRecoveryTimer = false
 	if(bCanSeePlayer && recoverytimer == 0):
 		if(shootIntervalTimer >= shootIntervalTime):
-			shoot()
+#			shoot()
 			shootIntervalTimer = 0
 		followPlayer(player,delta)
 		
