@@ -84,6 +84,7 @@ position = Vector2( 1.03317, 0.966829 )
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 8
+frame = 7
 
 [node name="SpriteAnimations" type="AnimationPlayer" parent="Sprite"]
 anims/Death = SubResource( 3 )
