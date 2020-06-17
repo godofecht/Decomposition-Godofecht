@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Bacteria/Bacteria.gd" type="Script" id=1]
+[ext_resource path="res://Bacteria/SFX/Enemy - Vocal 1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Bacteria/SFX/Enemy - Bullet Hit.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Bacteria/SFX/Enemy - Death Small.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Bacteria/Enemy_Sprites.png" type="Texture" id=5]
+[ext_resource path="res://Bacteria/SFX/Enemy - Shoot Small.ogg" type="AudioStream" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 200.0
+rough = true
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 0.493964
+
+[sub_resource type="Animation" id=3]
+resource_name = "Death"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "onDeathAnimationComplete"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Movement"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 0.0282473
+height = 0.00549048
+
+[node name="Bacteria" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource( 1 )
+linear_damp = 2.0
+angular_damp = 1.0
+script = ExtResource( 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0649073, -0.34737 )
+scale = Vector2( 20, 20 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1.03317, 0.966829 )
+texture = ExtResource( 5 )
+vframes = 2
+hframes = 8
+frame = 1
+
+[node name="SpriteAnimations" type="AnimationPlayer" parent="Sprite"]
+anims/Death = SubResource( 3 )
+anims/Movement = SubResource( 4 )
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 3 )
+
+[node name="Death" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 4 )
+
+[node name="Vocal" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 2 )
+max_distance = 200000.0
+attenuation = 0.732043
+
+[node name="Shoot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="ImpactArea" type="Area2D" parent="."]
+scale = Vector2( 20, 20 )
+collision_layer = 0
+collision_mask = 8
+
+[node name="Collision" type="CollisionShape2D" parent="ImpactArea"]
+position = Vector2( 0.00935548, -0.00854203 )
+scale = Vector2( 20, 20 )
+shape = SubResource( 5 )
+[connection signal="body_entered" from="ImpactArea" to="." method="_on_ImpactArea_body_entered"]
