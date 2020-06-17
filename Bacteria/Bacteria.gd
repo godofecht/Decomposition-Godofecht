@@ -27,7 +27,7 @@ var lerpVal = 1.0
 var visionDistance = 600
 var recoverytimer = 0
 var shootIntervalTimer = 0
-var shootIntervalTime =  1
+var shootIntervalTime =  5
 var recoveryTime = 2
 
 onready var player = get_parent().get_node("../Player")
