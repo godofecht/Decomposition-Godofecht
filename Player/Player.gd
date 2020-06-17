@@ -181,10 +181,13 @@ func onShootingAnimationFinish():
 	AnimationState.travel("Walking")
 
 
+func getVectorToTransform(target):
+	return -(get_transform().origin - target.get_transform().origin).normalized()
 
 func _on_ImpactArea_body_entered(body):
 	if (body.filename == 'res://Bacteria/Bacteria.tscn'):
 		take_damage(1)
+		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
 	elif (body.filename == 'res://Bosses/BigBoi/BigBoi.tscn'):
 		take_damage(10)
 	elif(body.color == "blue"):

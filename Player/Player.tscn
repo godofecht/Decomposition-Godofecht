@@ -118,7 +118,7 @@ colors = PoolColorArray( 0, 1, 0.0392157, 0, 0.0617676, 0.988281, 0.508729, 1 )
 polygon = PoolVector2Array( -7.62039, 2.12623, 6.5433, 2.77847, 4.33739, -1.63334, -7.73889, -0.954703 )
 
 [sub_resource type="CircleShape2D" id=17]
-radius = 16.331
+radius = 9.09767
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
@@ -197,7 +197,7 @@ gravity = Vector2( -25, 70 )
 color_ramp = SubResource( 15 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -2.9696, 7.15099 )
+position = Vector2( -0.209216, 0.342038 )
 scale = Vector2( 0.105507, 0.105507 )
 texture = ExtResource( 7 )
 color = Color( 0.141176, 0.976471, 0.152941, 0.356863 )
