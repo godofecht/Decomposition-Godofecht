@@ -161,9 +161,9 @@ func move():
 
 func _on_AbsorbArea_body_entered(body: Node) -> void:
 	if (body.filename == 'res://Bullet/Bullet.tscn'):
-		ammo += 1
-		onAmmoSet()
 		if(body.color == "green"):
+			ammo += 1
+			onAmmoSet()
 			print("Absorbed something")
 			body.queue_free()
 			OnSuctionSFX.play()
