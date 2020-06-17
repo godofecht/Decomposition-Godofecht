@@ -1,5 +1,14 @@
 extends RigidBody2D
 
+onready var VocalTracks = [
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 01.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 03.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 04.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 05.ogg",
+]
+
+onready var VocalsPlayer = $SFX/Vocals
 onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
 onready var player = get_parent().get_node("../Player")
@@ -59,6 +68,9 @@ func _on_HitArea_body_entered(body: Node) -> void:
 	#AnimationPlayerNode.play("Attack")
 	#HitSFX.play()
 	Health -= 1
+	VocalsPlayer.stream = load(VocalTracks[randi()%VocalTracks.size()])
+	VocalsPlayer.play()
+	
 	if (Health <= 0 && !dead):
 		onDeath()
 	bIncrementRecoveryTimer = true;

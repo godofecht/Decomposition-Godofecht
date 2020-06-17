@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Enemy - Boss Dash Attack.ogg-b078e3dc9d280cbec860356
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
