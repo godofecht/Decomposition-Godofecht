@@ -25,3 +25,5 @@ func _process(delta):
 	if(life_timer >= lifespan):
 		life_timer = 0
 		queue_free()
+		
+		

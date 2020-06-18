@@ -49,7 +49,8 @@ func _on_ImpactArea_body_entered(body: Node) -> void:
 	
 	if(body.color == "green"):
 		var bullet_velocity = pow((pow(body.linear_velocity.x,2) + pow(body.linear_velocity.y,2)),0.5)
-		if(bullet_velocity > 20):
+		print(bullet_velocity)
+		if(bullet_velocity > 10):
 			HitSFX.play()
 			Health -= 1
 			if (Health <= 0 && !dead):
