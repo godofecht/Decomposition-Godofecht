@@ -22,6 +22,7 @@ onready var SuctionEmitter2 = $AbsorbArea/SuctionEmitter2
 onready var SuctionEmitter3 = $AbsorbArea/SuctionEmitter3
 
 #SFX
+onready var OnDashSFX = $SFX/DashSFX
 onready var OnHurtPlayerSFX = $SFX/OnHurtSFX
 onready var ShootingSFX = $SFX/ShootingSFX
 onready var OnSuctionSFX = $SFX/OnSuctionSFX
@@ -154,6 +155,7 @@ func dash():
 	if (isDashin): return
 	isDashin = true
 	AnimationState.travel("Dash")
+	OnDashSFX.play()
 	bCanDash = false
 	velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
 	if($Camera2D != null):
