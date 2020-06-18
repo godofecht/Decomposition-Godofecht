@@ -42,6 +42,10 @@ var bCanDash = true
 var dashTimer = 0.0
 
 
+
+var input_vector
+
+
 #for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
 func onAmmoSet():
@@ -113,7 +117,7 @@ func take_damage(damage):
 	$Camera2D.small_shake()
 
 func move_state(delta: float):
-	var input_vector = Vector2.ZERO
+	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("KEY_RIGHT") - Input.get_action_strength("KEY_LEFT")
 	input_vector.y = Input.get_action_strength("KEY_DOWN") - Input.get_action_strength("KEY_UP")
 	input_vector = input_vector.normalized()
@@ -142,15 +146,15 @@ func move_state(delta: float):
 		
 	if Input.is_key_pressed(KEY_SPACE):
 		if bCanDash:
-			print("dash")
-			bCanDash = false
-			velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
-			if($Camera2D != null):
-				$Camera2D.small_shake()
-
-		
+			dash()
 	move()
 
+func dash():
+	print("dash")
+	bCanDash = false
+	velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
+	if($Camera2D != null):
+		$Camera2D.small_shake()
 
 
 func shoot():
