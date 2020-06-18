@@ -636,6 +636,7 @@ __meta__ = {
 position = Vector2( -95.1522, -24.4901 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 53 )
+frame = 1
 playing = true
 
 [node name="Crystals" type="Label" parent="UI/HUD"]
@@ -655,7 +656,6 @@ __meta__ = {
 position = Vector2( -163.956, -22.6682 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
-frame = 1
 playing = true
 
 [node name="Health" type="Label" parent="UI/HUD"]
@@ -676,6 +676,7 @@ __meta__ = {
 position = Vector2( -309.412, -23.0233 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 59 )
+frame = 1
 playing = true
 
 [node name="Notification" parent="UI" instance=ExtResource( 18 )]

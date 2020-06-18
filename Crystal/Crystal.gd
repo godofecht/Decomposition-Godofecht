@@ -1,5 +1,9 @@
 extends RigidBody2D
 
-# Called when the node enters the scene tree for the first time.
+var shouldIgnoreSound = false
+onready var DropSFX = $DropSFX
+
 func _ready() -> void:
-	pass # Replace with function body.
+	if (shouldIgnoreSound):
+		DropSFX.autoplay = false
+		DropSFX.stop()

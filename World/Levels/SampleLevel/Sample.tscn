@@ -642,7 +642,6 @@ __meta__ = {
 position = Vector2( -95.1522, -24.4901 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 53 )
-frame = 1
 playing = true
 
 [node name="Crystals" type="Label" parent="UI/HUD"]
@@ -662,6 +661,7 @@ __meta__ = {
 position = Vector2( -163.956, -22.6682 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
+frame = 1
 playing = true
 
 [node name="Health" type="Label" parent="UI/HUD"]
@@ -682,7 +682,6 @@ __meta__ = {
 position = Vector2( -309.412, -23.0233 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 59 )
-frame = 1
 playing = true
 
 [node name="Notification" parent="UI" instance=ExtResource( 18 )]
@@ -691,6 +690,7 @@ playing = true
 
 [node name="Player" parent="YSort - Entities" instance=ExtResource( 14 )]
 position = Vector2( 72.0962, 65.9209 )
+ammo = 200
 
 [node name="Camera2D" type="Camera2D" parent="YSort - Entities/Player"]
 current = true
@@ -787,5 +787,5 @@ nextLevel = "res://World/Levels/Level2/Level2.tscn"
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]
-[connection signal="body_entered" from="BossTrigger" to="." method="_on_BossTrigger_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_BossTrigger_body_entered"]
+[connection signal="body_entered" from="BossTrigger" to="." method="_on_BossTrigger_body_entered"]

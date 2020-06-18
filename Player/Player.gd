@@ -6,6 +6,12 @@ export var FRICTION = 800
 export var BULLET_SPEED = 400
 
 
+onready var HurtSFXCollection = [
+	"res://Player/SFX/Player - Hurt 1.ogg",
+	"res://Player/SFX/Player - Hurt 2.ogg",
+	"res://Player/SFX/Player - Hurt 3.ogg"
+]
+
 onready var AnimationT = $SpriteNodes/AnimationTree
 onready var AnimationState = AnimationT.get("parameters/playback")
 
@@ -16,6 +22,7 @@ onready var SuctionEmitter2 = $AbsorbArea/SuctionEmitter2
 onready var SuctionEmitter3 = $AbsorbArea/SuctionEmitter3
 
 #SFX
+onready var OnHurtPlayerSFX = $SFX/OnHurtSFX
 onready var ShootingSFX = $SFX/ShootingSFX
 onready var OnSuctionSFX = $SFX/OnSuctionSFX
 onready var OnSuctionStartSFX = $SFX/SuctionPowerUpSFX
@@ -87,6 +94,11 @@ func KillPlayer():
 
 
 func take_damage(damage):
+	OnHurtPlayerSFX.filename
+	
+	OnHurtPlayerSFX.stream = load(HurtSFXCollection[randi()%HurtSFXCollection.size()])
+	OnHurtPlayerSFX.play()
+	
 	health -= damage
 	onHealthChange()
 	lerpVal = 0
