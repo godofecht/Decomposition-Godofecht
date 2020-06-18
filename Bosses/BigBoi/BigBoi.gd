@@ -76,7 +76,8 @@ func _process(delta):
 
 
 func _draw():
-	draw_line(Vector2(0,0), (getVectorToTransform(player)*visionDistance).rotated(deg2rad(-rotation_degrees)), Color(255, 0, 0), 1)
+	pass
+	#draw_line(Vector2(0,0), (getVectorToTransform(player)*visionDistance).rotated(deg2rad(-rotation_degrees)), Color(255, 0, 0), 1)
 
 
 

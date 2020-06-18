@@ -740,5 +740,5 @@ nextLevel = "res://MainScreen/MainScreen.tscn"
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]
-[connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_BossTrigger_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_BossTrigger_body_entered"]
+[connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_BossTrigger_body_entered"]
