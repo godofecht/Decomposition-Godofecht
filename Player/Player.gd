@@ -44,6 +44,11 @@ signal CrystalCollectedChange
 func onCrystalCollectedChange():
 	emit_signal("CrystalCollectedChange", crystalsCollected)
 
+signal HealthChange
+func onHealthChange():
+	emit_signal("HealthChange", health)
+
+
 enum {
 	RUNNING,
 	SUCTION
@@ -83,6 +88,7 @@ func KillPlayer():
 
 func take_damage(damage):
 	health -= damage
+	onHealthChange()
 	lerpVal = 0
 	modulate = Color(1,lerpVal,lerpVal)
 	$Camera2D.small_shake()
