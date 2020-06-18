@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			A2D[1].open()	
 
 func _on_Player_AmmoChange(value) -> void:	
-	AmmoUI.text = "Ammo Left: %s" % value	
+	AmmoUI.text = "%s" % value	
 
 
 func _on_BossTrigger_body_entered(body: Node) -> void:
