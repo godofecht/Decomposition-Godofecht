@@ -12,12 +12,14 @@ onready var BossMusic = $"SFX/BossMusic"
 
 onready var Player = $"YSort - Entities/Player"
 
-var totalHp = 10
-
 func _ready() -> void:
 	Shadows.visible = true
-	totalHp = Player.health
-	_on_Player_HealthChange(totalHp)
+	Player.health = Global.player_health
+	Player.ammo = Global.player_bullets
+	Player.crystalsCollected = Global.player_crystals
+	_on_Player_HealthChange(Player.health)
+	_on_Player_AmmoChange(Player.ammo)
+	_on_Player_CrystalCollectedChange(Player.crystalsCollected)
 	Notification.showText("Level 1")
 	
 onready var AreaDoorMapping = [	
@@ -46,4 +48,4 @@ func _on_Player_CrystalCollectedChange(value) -> void:
 
 
 func _on_Player_HealthChange(value) -> void:
-	HealthUI.text = "%s/%s" % [value, totalHp]
+	HealthUI.text = "%s/%s" % [value, Global.TOTAL_HP]

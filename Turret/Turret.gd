@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var Health = 5
-export var AmoutOfComponentsGeneratedAtDeath = 5
+export var AmoutOfComponentsGeneratedAtDeath = 2
 
 onready var bulletScene = preload("res://Bullet/Bullet.tscn")
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")

@@ -604,7 +604,6 @@ zoom = Vector2( 0.4, 0.4 )
 
 [node name="Player" parent="YSort - Entities" instance=ExtResource( 5 )]
 position = Vector2( 206.592, 118.282 )
-ammo = 100000
 
 [node name="Light2D3" type="Light2D" parent="YSort - Entities/Player"]
 position = Vector2( -0.730362, -0.541519 )
@@ -619,5 +618,6 @@ volume_db = -10.0
 autoplay = true
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 1 )]
+keep_stuff = false
 nextLevel = "res://World/Levels/Level1/Level1.tscn"
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]

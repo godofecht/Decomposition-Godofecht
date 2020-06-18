@@ -31,11 +31,9 @@ onready var OnCrystalPickuSFX = $SFX/CrystalPickupSFX
 onready var OutOfAmmoSFX = $SFX/OutOfAmmo
 onready var FootstepsSFX = $SFX/FootstepsSFX
 
-export(int) var ammo = 3
-export(int) var crystalsCollected = 0
-
-
-export (int) var health = 25
+var ammo = 3
+var crystalsCollected = 0
+var health = 25
 
 var lerpVal = 1.0
 
