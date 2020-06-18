@@ -154,11 +154,10 @@ func move_state(delta: float):
 	move()
 
 func dash():
-	stopAbsorbing()
 	print("dash")
 	if (isDashin): return
-	stopAbsorbing()
 	isDashin = true
+	stopAbsorbing()
 	AnimationState.travel("Dash")
 	OnDashSFX.play()
 	bCanDash = false
@@ -208,8 +207,8 @@ func stopAbsorbing():
 	print("Absorb disabled")
 	if (!isDashin):
 		AnimationState.travel("Walking")
+		OnSuctionFinishSFX.play()
 	OnSuctionStartSFX.stop()
-	OnSuctionFinishSFX.play()
 	AbsorbCollision.disabled = true
 	SuctionEmitter1.emitting = false
 	SuctionEmitter1.speed_scale = 10000
