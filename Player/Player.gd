@@ -39,6 +39,8 @@ var lerpVal = 1.0
 
 
 var bCanDash = true
+var dashTimer = 0.0
+
 
 #for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
@@ -86,6 +88,13 @@ func _process(delta):
 #	print(health)
 	if(health <= 0):
 		KillPlayer()
+		
+		
+	if(bCanDash == false):
+		dashTimer += delta
+	if(dashTimer >= 2):
+		bCanDash = true
+		dashTimer = 0
 
 func KillPlayer():
 	get_tree().change_scene("res://DeathScreen/DeathScreen.tscn")
@@ -131,18 +140,16 @@ func move_state(delta: float):
 	if Input.is_action_just_released("SECONDARY"):
 		stopAbsorbing()
 		
-	move()
-	
-	
-	
-
-func _input(ev):
 	if Input.is_key_pressed(KEY_SPACE):
 		if bCanDash:
-#			print("dash")
+			print("dash")
 			bCanDash = false
-			pass
+			velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
+			if($Camera2D != null):
+				$Camera2D.small_shake()
 
+		
+	move()
 
 
 
