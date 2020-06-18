@@ -78,7 +78,7 @@ func _process(delta):
 		lerpVal += 1.0/ 100.0
 	modulate = Color(1,lerpVal,lerpVal)
 	
-	print(health)
+#	print(health)
 	if(health <= 0):
 		KillPlayer()
 
@@ -152,7 +152,7 @@ func shoot():
 	get_parent().add_child(bullet)
 
 func absorb():
-	print("Absorb enabled")
+#	print("Absorb enabled")
 	if (AbsorbCollision.disabled):
 		OnSuctionStartSFX.play()
 		AnimationState.travel("Suction")
@@ -165,7 +165,7 @@ func absorb():
 	AbsorbCollision.disabled = false
 
 func stopAbsorbing():
-	print("Absorb disabled")
+#	print("Absorb disabled")
 	AnimationState.travel("Walking")
 	OnSuctionStartSFX.stop()
 	OnSuctionFinishSFX.play()
@@ -187,15 +187,15 @@ func _on_AbsorbArea_body_entered(body: Node) -> void:
 		if(body.color == "green"):
 			ammo += 1
 			onAmmoSet()
-			print("Absorbed something")
+#			print("Absorbed something")
 			body.queue_free()
 			OnSuctionSFX.play()
 	elif (body.filename == 'res://Crystal/Crystal.tscn'):
-		print("Absorbed a crystal")
+#		print("Absorbed a crystal")
 		crystalsCollected += 1
 		OnCrystalPickuSFX.play()
 		onCrystalCollectedChange()
-		print("Absorbed something")
+#		print("Absorbed something")
 		body.queue_free()
 		OnSuctionSFX.play()
 	
@@ -210,7 +210,7 @@ func getVectorToTransform(target):
 
 
 func _on_ImpactArea_body_entered(body):
-	print(body.name)
+#	print(body.name)
 	if (body.filename == 'res://Bacteria/Bacteria.tscn'):
 		take_damage(1)
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
@@ -228,4 +228,4 @@ func _on_ImpactArea_body_entered(body):
 		if(body.source == "turret"):
 			velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
 
-	print(body.filename)
+#	print(body.filename)

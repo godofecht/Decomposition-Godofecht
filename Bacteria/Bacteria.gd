@@ -48,14 +48,16 @@ func _ready() -> void:
 func _on_ImpactArea_body_entered(body: Node) -> void:
 	
 	if(body.color == "green"):
-		HitSFX.play()
-		Health -= 1
-		if (Health <= 0 && !dead):
-			onDeath()
-		print("hit")
-		bIncrementRecoveryTimer = true;
+		var bullet_velocity = pow((pow(body.linear_velocity.x,2) + pow(body.linear_velocity.y,2)),0.5)
+		if(bullet_velocity > 20):
+			HitSFX.play()
+			Health -= 1
+			if (Health <= 0 && !dead):
+				onDeath()
+			print("hit")
+			bIncrementRecoveryTimer = true;
 		
-		lerpVal = 0.0
+			lerpVal = 0.0
 	
 
 func shoot():
