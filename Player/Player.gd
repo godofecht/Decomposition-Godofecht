@@ -258,6 +258,7 @@ func _on_ImpactArea_body_entered(body):
 	if (body.filename == 'res://Bacteria/Bacteria.tscn'):
 		take_damage(1)
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
+		body.linear_velocity = velocity.move_toward(getVectorToTransform(body) * MAX_SPEED * 3, ACCELERATION)
 	elif (body.filename == 'res://Bosses/BigBoi/BigBoi.tscn'):
 		take_damage(10)
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED*10, ACCELERATION*3)
