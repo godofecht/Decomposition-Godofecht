@@ -22,6 +22,8 @@ func _ready() -> void:
 	
 onready var AreaDoorMapping = [	
 	[$"YSort - Entities/Enemies/Area1", $"Doors/Door"],	
+	[$"YSort - Entities/Enemies/Area2", $"Doors/Door2"],	
+	[$"YSort - Entities/Enemies/Area3", $"Doors/Door3"]	
 ]	
 
 func _process(delta: float) -> void:	

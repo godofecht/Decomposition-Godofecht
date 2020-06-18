@@ -18,7 +18,7 @@ func _ready() -> void:
 	Shadows.visible = true
 	totalHp = Player.health
 	_on_Player_HealthChange(totalHp)
-	Notification.showText("Level 1")
+	Notification.showText("Level 2")
 	
 onready var AreaDoorMapping = [	
 	[$"YSort - Entities/Enemies/Area1", $"Doors/Door"],	
