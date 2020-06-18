@@ -586,7 +586,7 @@ __meta__ = {
 [node name="YSort - Entities" type="YSort" parent="."]
 
 [node name="Player" parent="YSort - Entities" instance=ExtResource( 9 )]
-position = Vector2( 72.0962, 65.9209 )
+position = Vector2( 72.073, 65.921 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort - Entities/Player"]
 current = true
