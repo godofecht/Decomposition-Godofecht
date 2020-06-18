@@ -27,7 +27,7 @@ var shootIntervalTimer = 0
 var shootIntervalTime =  3
 var recoveryTime = 2
 
-var bCanAttack = false
+var bCanAttack = true
 
 func _ready() -> void:
 	pass # Replace with function body.
