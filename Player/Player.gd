@@ -40,7 +40,7 @@ var lerpVal = 1.0
 
 var bCanDash = true
 var dashTimer = 0.0
-
+var isDashin = false
 
 
 var input_vector
@@ -151,13 +151,18 @@ func move_state(delta: float):
 
 func dash():
 	print("dash")
+	isDashin = true
+	AnimationState.travel("Dash")
 	bCanDash = false
 	velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
 	if($Camera2D != null):
 		$Camera2D.small_shake()
 
+func onDashFinish():
+	isDashin = false
 
 func shoot():
+	if (isDashin): return
 	if (ammo <= 0):
 		OutOfAmmoSFX.play()
 		return
@@ -174,6 +179,7 @@ func shoot():
 
 func absorb():
 #	print("Absorb enabled")
+	if (isDashin): return
 	if (AbsorbCollision.disabled):
 		OnSuctionStartSFX.play()
 		AnimationState.travel("Suction")
@@ -190,7 +196,8 @@ func absorb():
 
 func stopAbsorbing():
 #	print("Absorb disabled")
-	AnimationState.travel("Walking")
+	if (!isDashin):
+		AnimationState.travel("Walking")
 	OnSuctionStartSFX.stop()
 	OnSuctionFinishSFX.play()
 	AbsorbCollision.disabled = true
