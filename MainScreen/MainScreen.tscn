@@ -515,11 +515,11 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="DynamicFont" id=51]
+[sub_resource type="DynamicFont" id=50]
 size = 25
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=52]
+[sub_resource type="DynamicFont" id=51]
 size = 20
 font_data = ExtResource( 6 )
 
@@ -566,7 +566,7 @@ margin_left = 3.09515
 margin_top = 91.3062
 margin_right = 3.09521
 margin_bottom = 139.306
-custom_fonts/font = SubResource( 51 )
+custom_fonts/font = SubResource( 50 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.756863 )
 text = "DECOMPOSITION
 
@@ -584,7 +584,7 @@ margin_left = -0.228935
 margin_top = -293.735
 margin_right = -0.228943
 margin_bottom = -4.73505
-custom_fonts/font = SubResource( 52 )
+custom_fonts/font = SubResource( 51 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.756863 )
 text = "Made by 
 Camiel Povel, KevinDNF, Abhishek Shivakumar
