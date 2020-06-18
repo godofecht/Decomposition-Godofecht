@@ -619,5 +619,5 @@ volume_db = -10.0
 autoplay = true
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 1 )]
-nextLevel = "res://World/Level1.tscn"
+nextLevel = "res://World/Levels/Level1/Level1.tscn"
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
