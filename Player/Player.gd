@@ -159,7 +159,7 @@ func dash():
 	AnimationState.travel("Dash")
 	OnDashSFX.play()
 	bCanDash = false
-	velocity = velocity.move_toward(input_vector * MAX_SPEED*dash_multiplier, ACCELERATION*3)
+	velocity = velocity.move_toward(input_vector * MAX_SPEED*dash_multiplier, ACCELERATION*10)
 	if($Camera2D != null):
 		$Camera2D.small_shake()
 
