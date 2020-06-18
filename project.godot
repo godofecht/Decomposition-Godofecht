@@ -19,6 +19,10 @@ config/name="Decomposition"
 run/main_scene="res://MainScreen/MainScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [importer_defaults]
 
 texture={
