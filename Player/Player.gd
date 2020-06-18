@@ -42,9 +42,11 @@ var lerpVal = 1.0
 var bCanDash = true
 var dashTimer = 0.0
 var isDashin = false
-
+var dash_multiplier = 2.7
 
 var input_vector
+
+
 
 
 #for some reason setget doesn't work. IDK why can't be asked to solve it
@@ -157,7 +159,7 @@ func dash():
 	AnimationState.travel("Dash")
 	OnDashSFX.play()
 	bCanDash = false
-	velocity = velocity.move_toward(input_vector * MAX_SPEED*2, ACCELERATION*3)
+	velocity = velocity.move_toward(input_vector * MAX_SPEED*dash_multiplier, ACCELERATION*3)
 	if($Camera2D != null):
 		$Camera2D.small_shake()
 
