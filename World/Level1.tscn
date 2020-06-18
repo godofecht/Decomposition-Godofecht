@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/NextLevelMarker.gd" type="Script" id=1]
 [ext_resource path="res://World/World.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://World/BossTrigger.gd" type="Script" id=10]
 [ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/BackgroundSounds/Music - Level 3.wav" type="AudioStream" id=12]
+[ext_resource path="res://ScreenShake.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/Camera2D.gd" type="Script" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -588,6 +590,9 @@ position = Vector2( 72.0962, 65.9209 )
 [node name="Camera2D" type="Camera2D" parent="YSort - Entities/Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 14 )
+
+[node name="ScreenShake" parent="YSort - Entities/Player/Camera2D" instance=ExtResource( 13 )]
 
 [node name="Light2D3" type="Light2D" parent="YSort - Entities/Player"]
 position = Vector2( -0.730362, -0.541519 )
