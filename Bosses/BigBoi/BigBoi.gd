@@ -105,7 +105,7 @@ func generateComponent(scene):
 	print(direction_rotation)
 	var pos = global_position + Vector2(10,0).rotated(direction_rotation)
 	component.global_position = pos
-	get_parent().add_child(component)
+	get_parent().get_parent().add_child(component)
 	component.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	component.apply_impulse(Vector2(20, 0).rotated(direction_rotation),
 				  Vector2(impulseForce, 0).rotated(direction_rotation))
