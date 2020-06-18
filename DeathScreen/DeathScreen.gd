@@ -6,4 +6,5 @@ func _on_GiveUpArea_body_entered(body: Node) -> void:
 onready var nextLevelArea = $NextLevelArea
 
 func _ready() -> void:
+	nextLevelArea.colorRectForTransition = $ColorRect
 	nextLevelArea.nextLevel = Global.CURRENT_LEVEL_SCENE
