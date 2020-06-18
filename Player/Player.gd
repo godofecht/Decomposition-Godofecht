@@ -28,7 +28,7 @@ export(int) var ammo = 3
 export(int) var crystalsCollected = 0
 
 
-var health = 100
+export (int) var health = 25
 
 var lerpVal = 1.0
 

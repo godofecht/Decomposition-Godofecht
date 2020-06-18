@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Decomposition"
-run/main_scene="res://SplashScreen/Background.tscn"
+run/main_scene="res://MainScreen/MainScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [importer_defaults]
 
