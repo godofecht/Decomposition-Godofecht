@@ -13,7 +13,7 @@ onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
 onready var player = get_parent().get_parent().get_node("../Player")
 
-export var Health = 5
+export var Health = 15
 var dead = false
 var AmoutOfComponentsGeneratedAtDeath = 5
 
@@ -51,7 +51,8 @@ func _process(delta):
 		bIncrementRecoveryTimer = false
 	if(bCanSeePlayer && recoverytimer == 0):
 		if(shootIntervalTimer >= shootIntervalTime):
-			AnimationPlayerNode.play("Attack")
+			if (!dead):
+				AnimationPlayerNode.play("Attack")
 			shootIntervalTimer = 0
 
 	if(lerpVal > 1.0):
