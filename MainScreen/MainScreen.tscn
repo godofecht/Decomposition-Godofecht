@@ -524,8 +524,6 @@ size = 20
 font_data = ExtResource( 6 )
 
 [node name="MainScreen" type="Node2D"]
-pause_mode = 2
-script = ExtResource( 7 )
 
 [node name="Map" type="Node2D" parent="."]
 
