@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var Notification = $UI/Notification
+
 onready var AmmoUI = $UI/HUD/Ammo
 onready var HealthUI = $UI/HUD/Health
 onready var CrystalUI = $UI/HUD/Crystals
@@ -16,6 +18,7 @@ func _ready() -> void:
 	Shadows.visible = true
 	totalHp = Player.health
 	_on_Player_HealthChange(totalHp)
+	Notification.showText("Level 1")
 	
 onready var AreaDoorMapping = [	
 	[$"YSort - Entities/Enemies/Area1", $"Doors/Door"],	
@@ -35,6 +38,7 @@ func _on_Player_AmmoChange(value) -> void:
 
 
 func _on_BossTrigger_body_entered(body: Node) -> void:
+	Notification.showText("Cereus")
 	LevelMusic.stop()
 	BossMusic.play()
 

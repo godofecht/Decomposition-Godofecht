@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=1]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://Crystal/Crystal.png" type="Texture" id=16]
 [ext_resource path="res://World/Heart.png" type="Texture" id=17]
+[ext_resource path="res://MenuItems/Notification.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -578,7 +579,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=60]
+[sub_resource type="RectangleShape2D" id=62]
 extents = Vector2( 21.353, 21.9918 )
 
 [node name="Level1" type="Node2D"]
@@ -683,6 +684,8 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 59 )
 playing = true
 
+[node name="Notification" parent="UI" instance=ExtResource( 18 )]
+
 [node name="YSort - Entities" type="YSort" parent="."]
 
 [node name="Player" parent="YSort - Entities" instance=ExtResource( 14 )]
@@ -775,7 +778,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
 position = Vector2( 880.316, -250.575 )
-shape = SubResource( 60 )
+shape = SubResource( 62 )
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 622.734, -1073 )
