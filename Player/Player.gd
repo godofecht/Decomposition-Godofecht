@@ -41,7 +41,7 @@ var lerpVal = 1.0
 
 var bCanDash = true
 var dashTimer = 0.0
-var dash_recovery_time = 0.2
+var dash_recovery_time = 0.5
 var isDashin = false
 var dash_multiplier = 2.7
 
@@ -157,6 +157,7 @@ func dash():
 	stopAbsorbing()
 	print("dash")
 	if (isDashin): return
+	stopAbsorbing()
 	isDashin = true
 	AnimationState.travel("Dash")
 	OnDashSFX.play()
