@@ -85,12 +85,14 @@ func onDeath():
 	AnimationPlayerNode.play("Death")
 	print("DYING")
 
+func onCrystalDrop():
+	for i in range(AmoutOfComponentsGeneratedAtDeath):
+		createCrystal(true)
+	createCrystal(false)
+
 func onDeathAnimationComplete():
 	print("DEAD")
 	queue_free()
-	
-	for i in range(AmoutOfComponentsGeneratedAtDeath):
-		generateComponent(crystalScene)
 
 func getVectorToTransform(target):
 	return -(get_transform().origin - target.get_transform().origin).normalized()
@@ -103,9 +105,11 @@ func impulseToPlayer():
 	apply_impulse(Vector2(20, 0).rotated(direction_rotation),
 				  getVectorToTransform(player) * impulseForce)
 
-func generateComponent(scene):
+func createCrystal(shouldIgnoreSound):
+	var scene = crystalScene
 	var impulseForce = 50
 	var component = scene.instance()
+	component.shouldIgnoreSound = shouldIgnoreSound
 	var direction_rotation = deg2rad((randi()%360+0) + 90)
 	print(direction_rotation)
 	var pos = global_position + Vector2(10,0).rotated(direction_rotation)
@@ -114,3 +118,5 @@ func generateComponent(scene):
 	component.global_position = global_position + Vector2(-10, 0).rotated(deg2rad(rotation_degrees + 90))
 	component.apply_impulse(Vector2(20, 0).rotated(direction_rotation),
 				  Vector2(impulseForce, 0).rotated(direction_rotation))
+
+
