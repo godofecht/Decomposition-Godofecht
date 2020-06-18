@@ -23,6 +23,10 @@ func _ready() -> void:
 	_on_Player_AmmoChange(Player.ammo)
 	_on_Player_CrystalCollectedChange(Player.crystalsCollected)
 	Notification.showText("Level 2")
+	$Transition.colorRect = $ColorRect
+	$ColorRect.modulate.a = 1
+	$NextLevelArea.colorRectForTransition = $ColorRect
+	$Transition.fadeOut()
 	
 onready var AreaDoorMapping = [	
 	[$"YSort - Entities/Enemies/Area1", $"Doors/Door"],	

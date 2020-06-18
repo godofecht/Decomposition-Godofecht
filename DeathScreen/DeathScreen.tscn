@@ -5,7 +5,7 @@
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://World/BackgroundSounds/Ambience 1.wav" type="AudioStream" id=6]
+[ext_resource path="res://World/BackgroundSounds/Ambience.ogg" type="AudioStream" id=6]
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -633,5 +633,14 @@ nextLevel = ""
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GiveUpArea"]
 position = Vector2( 111.12, 175.099 )
 shape = SubResource( 52 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1023.0
+margin_bottom = 610.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="body_entered" from="GiveUpArea" to="." method="_on_GiveUpArea_body_entered"]

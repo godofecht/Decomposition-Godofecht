@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=1]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://World/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://World/Levels/Level3 - Boss/Level3.gd" type="Script" id=5]
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/BackgroundSounds/Music - Level 3.wav" type="AudioStream" id=7]
-[ext_resource path="res://World/BackgroundSounds/Ambience 1.wav" type="AudioStream" id=8]
+[ext_resource path="res://World/BackgroundSounds/Music - Level 3.ogg" type="AudioStream" id=7]
+[ext_resource path="res://World/BackgroundSounds/Ambience.ogg" type="AudioStream" id=8]
+[ext_resource path="res://MenuItems/Transition/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ScreenShake.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Bosses/BigBoi/BigBoi.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=13]
@@ -591,9 +592,9 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Background" type="ColorRect" parent="Map"]
 margin_left = -4666.0
-margin_top = -4553.67
+margin_top = -4557.88
 margin_right = 7908.0
-margin_bottom = 4621.33
+margin_bottom = 4617.13
 color = Color( 0.0313726, 0.0901961, 0.156863, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -640,6 +641,7 @@ __meta__ = {
 position = Vector2( -95.1522, -24.4901 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 53 )
+frame = 1
 playing = true
 
 [node name="Crystals" type="Label" parent="UI/HUD"]
@@ -659,7 +661,6 @@ __meta__ = {
 position = Vector2( -163.956, -22.6682 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
-frame = 1
 playing = true
 
 [node name="Health" type="Label" parent="UI/HUD"]
@@ -680,6 +681,7 @@ __meta__ = {
 position = Vector2( -309.412, -23.0233 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 59 )
+frame = 1
 playing = true
 
 [node name="Notification" parent="UI" instance=ExtResource( 18 )]
@@ -736,9 +738,22 @@ shape = SubResource( 60 )
 
 [node name="NextLevelArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 622.734, -1327.73 )
-nextLevel = "res://World/Levels/Level2/Level1.tscn"
+nextLevel = "res://MainScreen/MainScreen.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -366.0
+margin_top = -1598.0
+margin_right = 2319.0
+margin_bottom = 843.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="." instance=ExtResource( 9 )]
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]
-[connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_BossTrigger_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_BossTrigger_body_entered"]
+[connection signal="body_entered" from="BossTrigger" to="BossTrigger" method="_on_BossTrigger_body_entered"]

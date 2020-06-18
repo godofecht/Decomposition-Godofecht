@@ -1,11 +1,11 @@
 extends RigidBody2D
 
 onready var VocalTracks = [
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 01.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 03.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 04.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 05.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 01.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 03.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 04.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 05.wav",
 ]
 
 onready var VocalsPlayer = $SFX/Vocals
@@ -27,7 +27,7 @@ var shootIntervalTimer = 0
 var shootIntervalTime =  3
 var recoveryTime = 2
 
-var bCanAttack = false
+var bCanAttack = true
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -76,7 +76,8 @@ func _process(delta):
 
 
 func _draw():
-	draw_line(Vector2(0,0), (getVectorToTransform(player)*visionDistance).rotated(deg2rad(-rotation_degrees)), Color(255, 0, 0), 1)
+	pass
+	#draw_line(Vector2(0,0), (getVectorToTransform(player)*visionDistance).rotated(deg2rad(-rotation_degrees)), Color(255, 0, 0), 1)
 
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enemy - Boss Vocal 02.wav-ec0e1260040095e1c46a22d0b7f6fb7a.sample"
+
+[deps]
+
+source_file="res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.wav"
+dest_files=[ "res://.import/Enemy - Boss Vocal 02.wav-ec0e1260040095e1c46a22d0b7f6fb7a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

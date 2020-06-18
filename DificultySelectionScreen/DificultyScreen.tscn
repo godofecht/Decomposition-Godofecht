@@ -1,6 +1,7 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
-[ext_resource path="res://MainScreen/Music - Menu.wav" type="AudioStream" id=2]
+[ext_resource path="res://MainScreen/Music - Menu.ogg" type="AudioStream" id=1]
+[ext_resource path="res://MenuItems/Transition/Transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=3]
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
@@ -599,7 +600,7 @@ texture = ExtResource( 3 )
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 2 )
+stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
 
@@ -623,7 +624,19 @@ position = Vector2( 296.927, 169.103 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Insane"]
 position = Vector2( 5.14049, 5.00522 )
 shape = SubResource( 51 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 448.0
+margin_bottom = 276.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="." instance=ExtResource( 2 )]
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="body_shape_entered" from="Easy" to="." method="_on_Easy_body_shape_entered"]
 [connection signal="body_shape_entered" from="Hard" to="." method="_on_Hard_body_shape_entered"]
 [connection signal="body_shape_entered" from="Insane" to="." method="_on_Insane_body_shape_entered"]
+[connection signal="tween_completed" from="Transition" to="." method="_on_Transition_tween_completed"]
