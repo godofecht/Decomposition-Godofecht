@@ -151,6 +151,7 @@ func move_state(delta: float):
 
 func dash():
 	print("dash")
+	if (isDashin): return
 	isDashin = true
 	AnimationState.travel("Dash")
 	bCanDash = false
@@ -159,7 +160,9 @@ func dash():
 		$Camera2D.small_shake()
 
 func onDashFinish():
+	print("dash finish")
 	isDashin = false
+	AnimationState.travel("Walking")
 
 func shoot():
 	if (isDashin): return
@@ -235,6 +238,7 @@ func _on_AbsorbArea_body_entered(body: Node) -> void:
 	
 
 func onShootingAnimationFinish():
+	print("shoot finish")
 	AnimationState.travel("Walking")
 
 
