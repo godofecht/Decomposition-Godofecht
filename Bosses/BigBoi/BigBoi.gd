@@ -27,7 +27,7 @@ var shootIntervalTimer = 0
 var shootIntervalTime =  3
 var recoveryTime = 2
 
-
+var bCanAttack = false
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 	var space_state = get_world_2d().direct_space_state
-	var hit = space_state.intersect_ray(get_transform().origin, get_transform().origin+getVectorToTransform(player)*visionDistance,[self],collision_mask)
+	var hit = space_state.intersect_ray(global_position, get_transform().origin+getVectorToTransform(player)*visionDistance,[self],collision_mask)
 	if hit:
 		if(hit["collider"] == player):
 			bCanSeePlayer = true;
@@ -43,14 +43,24 @@ func _physics_process(delta):
 			bCanSeePlayer = false;
 
 
+func startAttacking():
+	bCanAttack = true;
+
+func stopAttacking():
+	bCanAttack = false;
+
+
 func _process(delta):
+	
+	
+	
 	shootIntervalTimer += delta
 	if(bIncrementRecoveryTimer):
 		recoverytimer += delta
 	if(recoverytimer >= recoveryTime):
 		recoverytimer = 0
 		bIncrementRecoveryTimer = false
-	if(bCanSeePlayer && recoverytimer == 0):
+	if(bCanSeePlayer && recoverytimer == 0 && bCanAttack):
 		if(shootIntervalTimer >= shootIntervalTime):
 			if (!dead):
 				AnimationPlayerNode.play("Attack")
@@ -63,7 +73,12 @@ func _process(delta):
 	$Sprite.modulate = Color(1,lerpVal,lerpVal)
 
 	update()
-	
+
+
+func _draw():
+	draw_line(Vector2(0,0), (getVectorToTransform(player)*visionDistance).rotated(deg2rad(-rotation_degrees)), Color(255, 0, 0), 1)
+
+
 
 #on contact with bullet
 func _on_HitArea_body_entered(body: Node) -> void:
@@ -94,8 +109,10 @@ func onDeathAnimationComplete():
 	print("DEAD")
 	queue_free()
 
+
 func getVectorToTransform(target):
-	return -(get_transform().origin - target.get_transform().origin).normalized()
+	var OriginDir = -(global_position - target.get_transform().origin)
+	return OriginDir.normalized()
 
 func impulseToPlayer():
 	print("impulsing")
