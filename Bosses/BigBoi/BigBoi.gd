@@ -99,7 +99,7 @@ func _on_HitArea_body_entered(body: Node) -> void:
 func onDeath():
 	dead = true
 	AnimationPlayerNode.play("Death")
-	print("DYING")
+#	print("DYING")
 
 func onCrystalDrop():
 	for i in range(AmoutOfComponentsGeneratedAtDeath):
@@ -107,7 +107,7 @@ func onCrystalDrop():
 	createCrystal(false)
 
 func onDeathAnimationComplete():
-	print("DEAD")
+#	print("DEAD")
 	queue_free()
 
 
