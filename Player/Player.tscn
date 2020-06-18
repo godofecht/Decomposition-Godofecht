@@ -13,7 +13,7 @@
 [ext_resource path="res://Player/SFX/Player - Hurt 1.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Player/SFX/Player - Dash.wav" type="AudioStream" id=12]
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=1]
 resource_name = "Dash"
 length = 0.4
 tracks/0/type = "value"
@@ -43,8 +43,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Shooting"
+[sub_resource type="Animation" id=2]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("SpriteNodes/Sprite:frame")
@@ -56,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 4, 0 ]
+"values": [ 4, 5, 1, 0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -65,7 +64,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -73,8 +72,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Suction"
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -90,8 +88,7 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Walking"
+[sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -107,67 +104,67 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Dash"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Shooting"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Suction"
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=7]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
-[sub_resource type="AnimationNodeStateMachine" id=11]
-states/Dash/node = SubResource( 19 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachine" id=19]
+states/Dash/node = SubResource( 5 )
 states/Dash/position = Vector2( 567, 145 )
-states/Shooting/node = SubResource( 4 )
+states/Shooting/node = SubResource( 6 )
 states/Shooting/position = Vector2( 391, 174 )
-states/Suction/node = SubResource( 5 )
+states/Suction/node = SubResource( 7 )
 states/Suction/position = Vector2( 537, 77 )
-states/Walking/node = SubResource( 6 )
+states/Walking/node = SubResource( 8 )
 states/Walking/position = Vector2( 283, 77 )
-transitions = [ "Walking", "Suction", SubResource( 7 ), "Suction", "Walking", SubResource( 8 ), "Walking", "Shooting", SubResource( 9 ), "Shooting", "Walking", SubResource( 10 ), "Walking", "Dash", SubResource( 20 ), "Dash", "Walking", SubResource( 21 ), "Shooting", "Dash", SubResource( 22 ), "Suction", "Dash", SubResource( 23 ), "Dash", "Suction", SubResource( 24 ), "Dash", "Shooting", SubResource( 25 ) ]
+transitions = [ "Walking", "Suction", SubResource( 9 ), "Suction", "Walking", SubResource( 10 ), "Walking", "Shooting", SubResource( 11 ), "Shooting", "Walking", SubResource( 12 ), "Walking", "Dash", SubResource( 13 ), "Dash", "Walking", SubResource( 14 ), "Shooting", "Dash", SubResource( 15 ), "Suction", "Dash", SubResource( 16 ), "Dash", "Suction", SubResource( 17 ), "Dash", "Shooting", SubResource( 18 ) ]
 start_node = "Walking"
 graph_offset = Vector2( -1, 29 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=20]
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=21]
 radius = 9.03929
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
+[sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( -10, 0, 10, 0, 0, -25 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=23]
 offsets = PoolRealArray( 0, 0 )
 colors = PoolColorArray( 0, 1, 0.0392157, 0, 0.0617676, 0.988281, 0.508729, 1 )
 
-[sub_resource type="OccluderPolygon2D" id=16]
+[sub_resource type="OccluderPolygon2D" id=24]
 polygon = PoolVector2Array( -7.62039, 2.12623, 6.5433, 2.77847, 4.33739, -1.63334, -7.73889, -0.954703 )
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=25]
 radius = 9.09767
 
 [node name="Player" type="KinematicBody2D"]
@@ -181,23 +178,22 @@ rotation = -6.28319
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 2
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteNodes"]
 root_node = NodePath("../..")
-anims/Dash = SubResource( 18 )
-anims/Shooting = SubResource( 1 )
-anims/Suction = SubResource( 2 )
-anims/Walking = SubResource( 3 )
+anims/Dash = SubResource( 1 )
+anims/Shooting = SubResource( 2 )
+anims/Suction = SubResource( 3 )
+anims/Walking = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="SpriteNodes"]
-tree_root = SubResource( 11 )
+tree_root = SubResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 12 )
+parameters/playback = SubResource( 20 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0.358982, 2.06413 )
-shape = SubResource( 13 )
+shape = SubResource( 21 )
 
 [node name="AbsorbArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -207,7 +203,7 @@ collision_mask = 32
 position = Vector2( 1.036, -58.2316 )
 rotation = -3.14159
 scale = Vector2( 2, 2 )
-shape = SubResource( 14 )
+shape = SubResource( 22 )
 disabled = true
 
 [node name="SuctionEmitter1" type="CPUParticles2D" parent="AbsorbArea"]
@@ -221,7 +217,7 @@ direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
 scale_amount = 2.0
-color_ramp = SubResource( 15 )
+color_ramp = SubResource( 23 )
 
 [node name="SuctionEmitter2" type="CPUParticles2D" parent="AbsorbArea"]
 position = Vector2( 5.17996, -59.9696 )
@@ -235,7 +231,7 @@ direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
 scale_amount = 2.0
-color_ramp = SubResource( 15 )
+color_ramp = SubResource( 23 )
 
 [node name="SuctionEmitter3" type="CPUParticles2D" parent="AbsorbArea"]
 position = Vector2( -6.02393, -56.214 )
@@ -249,7 +245,7 @@ direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
 scale_amount = 2.0
-color_ramp = SubResource( 15 )
+color_ramp = SubResource( 23 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -0.209216, 0.342038 )
@@ -261,7 +257,7 @@ shadow_color = Color( 0.980392, 0.980392, 0.980392, 0 )
 shadow_filter_smooth = 1.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 16 )
+occluder = SubResource( 24 )
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -298,7 +294,7 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactArea"]
-shape = SubResource( 17 )
+shape = SubResource( 25 )
 [connection signal="animation_finished" from="SpriteNodes/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AbsorbArea" to="." method="_on_AbsorbArea_body_entered"]
 [connection signal="body_entered" from="ImpactArea" to="." method="_on_ImpactArea_body_entered"]
