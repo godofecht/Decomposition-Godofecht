@@ -142,7 +142,7 @@ func move_state(delta: float):
 	if Input.is_action_just_pressed("PRIMARY"):
 		shoot()
 		
-	if Input.is_action_just_pressed("SECONDARY"):
+	if Input.is_action_pressed("SECONDARY"):
 		absorb()
 		
 	if Input.is_action_just_released("SECONDARY"):
@@ -201,7 +201,7 @@ func absorb():
 		SuctionEmitter3.emitting = true
 		SuctionEmitter3.modulate.a = 1
 		SuctionEmitter3.speed_scale = 1
-	AbsorbCollision.disabled = false
+		AbsorbCollision.disabled = false
 
 func stopAbsorbing():
 #	print("Absorb disabled")
