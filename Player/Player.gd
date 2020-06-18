@@ -85,6 +85,7 @@ func take_damage(damage):
 	health -= damage
 	lerpVal = 0
 	modulate = Color(1,lerpVal,lerpVal)
+	$Camera2D.small_shake()
 
 func move_state(delta: float):
 	var input_vector = Vector2.ZERO
@@ -214,11 +215,11 @@ func _on_ImpactArea_body_entered(body):
 	elif(body.filename == 'res://Turret/Turret.tscn'):
 		pass
 		
-	elif(body.color == "blue"):
-		take_damage(1)
 
 	elif (body.filename == 'res://Bullet/Bullet.tscn'):
 		if(body.color == "blue"):
 			take_damage(1)
+		if(body.source == "turret"):
+			velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
 
 	print(body.filename)

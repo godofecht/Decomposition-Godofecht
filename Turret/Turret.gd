@@ -55,6 +55,7 @@ func shoot():
 	ShootingSFX.play()
 	var bullet = Bullet_Scene.instance()
 	bullet.color = "blue"
+	bullet.source = "turret"
 	bullet.bShouldDie = true
 #	bullet.set_collision_layer_bit(2,false)
 #	bullet.set_collision_layer_bit(3,false)

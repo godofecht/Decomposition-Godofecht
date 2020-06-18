@@ -3,6 +3,7 @@ extends RigidBody2D
 onready var animationPlayer = $Sprite/AnimationPlayer
 
 export var color = "green"
+var source = ""
 
 
 var bShouldDie = false
