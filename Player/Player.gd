@@ -41,6 +41,7 @@ var lerpVal = 1.0
 
 var bCanDash = true
 var dashTimer = 0.0
+var dash_recovery_time = 0.2
 var isDashin = false
 var dash_multiplier = 2.7
 
@@ -99,7 +100,7 @@ func _process(delta):
 		
 	if(bCanDash == false):
 		dashTimer += delta
-	if(dashTimer >= 2):
+	if(dashTimer >= dash_recovery_time):
 		bCanDash = true
 		dashTimer = 0
 
