@@ -6,7 +6,7 @@
 [ext_resource path="res://World/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://World/Levels/Level1/Level1.gd" type="Script" id=5]
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/BackgroundSounds/Music 1.wav" type="AudioStream" id=8]
+[ext_resource path="res://World/BackgroundSounds/Music - Level 1.wav" type="AudioStream" id=7]
 [ext_resource path="res://Bacteria/Bacteria.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ScreenShake.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=13]
@@ -719,7 +719,7 @@ position = Vector2( 521.456, 202.342 )
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 8 )
+stream = ExtResource( 7 )
 volume_db = -10.0
 autoplay = true
 

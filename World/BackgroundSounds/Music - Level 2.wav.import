@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Music - Level 2.wav-d967657273f8159a51ccd3bd1dfe83c2.sample"
+
+[deps]
+
+source_file="res://World/BackgroundSounds/Music - Level 2.wav"
+dest_files=[ "res://.import/Music - Level 2.wav-d967657273f8159a51ccd3bd1dfe83c2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,11 +1,11 @@
 [gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainScreen/Music - Menu.wav" type="AudioStream" id=2]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=3]
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://World/BackgroundSounds/Ambience 1.wav" type="AudioStream" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -614,7 +614,7 @@ texture = ExtResource( 3 )
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="MusicBG" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 7 )
+stream = ExtResource( 2 )
 volume_db = -10.0
 autoplay = true
 
