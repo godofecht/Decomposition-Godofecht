@@ -11,7 +11,7 @@ onready var VocalTracks = [
 onready var VocalsPlayer = $SFX/Vocals
 onready var AnimationPlayerNode = $Sprite/AnimationPlayer
 onready var crystalScene = preload("res://Crystal/Crystal.tscn")
-onready var player = get_parent().get_node("../Player")
+onready var player = get_parent().get_parent().get_node("../Player")
 
 export var Health = 5
 var dead = false

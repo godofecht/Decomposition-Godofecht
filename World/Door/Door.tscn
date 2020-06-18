@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/Door/Door.gd" type="Script" id=1]
+[ext_resource path="res://World/Door/Door.png" type="Texture" id=2]
+[ext_resource path="res://World/Door/SFX/Player - Open Door.ogg" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.90967, 10.3608 )
+
+[node name="Door" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="OpeningSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 10.0

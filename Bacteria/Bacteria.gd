@@ -30,7 +30,7 @@ var shootIntervalTimer = 0
 var shootIntervalTime =  5
 var recoveryTime = 2
 
-onready var player = get_parent().get_node("../Player")
+onready var player = get_parent().get_parent().get_node("../Player")
 var bCanSeePlayer = false;
 var velocity = Vector2.ZERO
 
