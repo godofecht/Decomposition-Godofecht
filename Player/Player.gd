@@ -154,6 +154,7 @@ func move_state(delta: float):
 	move()
 
 func dash():
+	stopAbsorbing()
 	print("dash")
 	if (isDashin): return
 	stopAbsorbing()
@@ -187,7 +188,7 @@ func shoot():
 	get_parent().add_child(bullet)
 
 func absorb():
-#	print("Absorb enabled")
+	print("Absorb enabled")
 	if (isDashin): return
 	if (AbsorbCollision.disabled):
 		OnSuctionStartSFX.play()
@@ -204,7 +205,7 @@ func absorb():
 		AbsorbCollision.disabled = false
 
 func stopAbsorbing():
-#	print("Absorb disabled")
+	print("Absorb disabled")
 	if (!isDashin):
 		AnimationState.travel("Walking")
 	OnSuctionStartSFX.stop()
