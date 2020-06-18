@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enemy - Boss Dash Attack.wav-51430aacc1a69b9ec70c7f4ceb2060e3.sample"
+
+[deps]
+
+source_file="res://Bosses/BigBoi/SFX/Enemy - Boss Dash Attack.wav"
+dest_files=[ "res://.import/Enemy - Boss Dash Attack.wav-51430aacc1a69b9ec70c7f4ceb2060e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Bosses/BigBoi/BigBoi.png" type="Texture" id=1]
 [ext_resource path="res://Bosses/BigBoi/BigBoi.gd" type="Script" id=2]
-[ext_resource path="res://Bosses/BigBoi/SFX/Enemy - Boss Death Big.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Bosses/BigBoi/SFX/Enemy - Boss Dash Attack.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Bosses/BigBoi/SFX/Enemy - Boss Death Big.wav" type="AudioStream" id=3]
+[ext_resource path="res://Bosses/BigBoi/SFX/Enemy - Boss Dash Attack.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 49.9255

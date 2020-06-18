@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://World/WorldTileset.png" type="Texture" id=1]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/BackgroundSounds/Music - Level 3.ogg" type="AudioStream" id=7]
 [ext_resource path="res://World/BackgroundSounds/Ambience.ogg" type="AudioStream" id=8]
+[ext_resource path="res://MenuItems/Transition/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ScreenShake.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Bosses/BigBoi/BigBoi.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/Door/Door.tscn" type="PackedScene" id=13]
@@ -591,9 +592,9 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Background" type="ColorRect" parent="Map"]
 margin_left = -4666.0
-margin_top = -4553.67
+margin_top = -4557.88
 margin_right = 7908.0
-margin_bottom = 4621.33
+margin_bottom = 4617.13
 color = Color( 0.0313726, 0.0901961, 0.156863, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -737,6 +738,19 @@ shape = SubResource( 60 )
 [node name="NextLevelArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 622.734, -1327.73 )
 nextLevel = "res://MainScreen/MainScreen.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -366.0
+margin_top = -1598.0
+margin_right = 2319.0
+margin_bottom = 843.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="." instance=ExtResource( 9 )]
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]

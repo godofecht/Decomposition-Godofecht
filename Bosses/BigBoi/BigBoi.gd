@@ -1,11 +1,11 @@
 extends RigidBody2D
 
 onready var VocalTracks = [
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 01.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 03.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 04.ogg",
-	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 05.ogg",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 01.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 02.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 03.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 04.wav",
+	"res://Bosses/BigBoi/SFX/Enemy - Boss Vocal 05.wav",
 ]
 
 onready var VocalsPlayer = $SFX/Vocals

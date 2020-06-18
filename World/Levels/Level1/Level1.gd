@@ -22,6 +22,7 @@ func _ready() -> void:
 	_on_Player_CrystalCollectedChange(Player.crystalsCollected)
 	Notification.showText("Level 1")
 	$Transition.colorRect = $ColorRect
+	$ColorRect.modulate.a = 1
 	$NextLevelArea.colorRectForTransition = $ColorRect
 	$Transition.fadeOut()
 	
