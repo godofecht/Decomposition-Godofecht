@@ -28,6 +28,7 @@ var shootIntervalTime =  3
 var recoveryTime = 2
 
 
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -64,16 +65,20 @@ func _process(delta):
 	update()
 	
 
+#on contact with bullet
 func _on_HitArea_body_entered(body: Node) -> void:
-	print("You hit big boi, you get big slap!")
-	Health -= 1
-	VocalsPlayer.stream = load(VocalTracks[randi()%VocalTracks.size()])
-	VocalsPlayer.play()
 	
-	if (Health <= 0 && !dead):
-		onDeath()
-	bIncrementRecoveryTimer = true;
-	lerpVal = 0.0
+	if(body.filename == "res://Bullet/Bullet.tscn"):
+		if(body.color == "green"):
+			print("You hit big boi, you get big slap!")
+			Health -= 1
+			VocalsPlayer.stream = load(VocalTracks[randi()%VocalTracks.size()])
+			VocalsPlayer.play()
+			if (Health <= 0 && !dead):
+				onDeath()
+			bIncrementRecoveryTimer = true;
+			lerpVal = 0.0
+
 
 func onDeath():
 	dead = true

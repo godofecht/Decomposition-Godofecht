@@ -32,6 +32,9 @@ var health = 100
 
 var lerpVal = 1.0
 
+
+var bCanDash = true
+
 #for some reason setget doesn't work. IDK why can't be asked to solve it
 signal AmmoChange
 func onAmmoSet():
@@ -112,6 +115,19 @@ func move_state(delta: float):
 		stopAbsorbing()
 		
 	move()
+	
+	
+	
+
+func _input(ev):
+	if Input.is_key_pressed(KEY_SPACE):
+		if bCanDash:
+#			print("dash")
+			bCanDash = false
+			pass
+
+
+
 
 func shoot():
 	if (ammo <= 0):
@@ -193,6 +209,7 @@ func _on_ImpactArea_body_entered(body):
 		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED, ACCELERATION)
 	elif (body.filename == 'res://Bosses/BigBoi/BigBoi.tscn'):
 		take_damage(10)
+		velocity = velocity.move_toward(-getVectorToTransform(body) * MAX_SPEED*10, ACCELERATION*3)
 
 	elif(body.filename == 'res://Turret/Turret.tscn'):
 		pass
