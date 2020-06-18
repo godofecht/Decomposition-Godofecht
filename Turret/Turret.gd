@@ -111,7 +111,7 @@ func _physics_process(delta):
 	var space_state = get_world_2d().direct_space_state
 #	set_collision_layer_bit(1,true)
 #	set_collision_mask_bit(2,true)
-	var hit = space_state.intersect_ray(get_transform().origin, get_transform().origin+getVectorToTransform(player)*visionDistance,[self],collision_mask)
+	var hit = space_state.intersect_ray(global_position, global_position+getVectorToTransform(player)*visionDistance,[self],collision_mask)
 	rotation_degrees = rad2deg(global_position.angle_to_point(player.global_position)) - 90
 	if hit:
 		if(hit["collider"] == player):
@@ -127,7 +127,8 @@ func _draw():
 
 
 func getVectorToTransform(target):
-	return -(get_transform().origin - target.get_transform().origin).normalized()
+	var OriginDir = -(global_position - target.get_transform().origin)
+	return OriginDir.normalized()
 
 func generateComponent(scene):
 	var impulseForce = 50

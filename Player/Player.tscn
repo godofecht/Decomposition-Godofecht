@@ -127,6 +127,7 @@ script = ExtResource( 3 )
 [node name="SpriteNodes" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="SpriteNodes"]
+rotation = -6.28319
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 2
@@ -206,7 +207,6 @@ shadow_color = Color( 0.980392, 0.980392, 0.980392, 0 )
 shadow_filter_smooth = 1.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource( 16 )
 
 [node name="SFX" type="Node2D" parent="."]

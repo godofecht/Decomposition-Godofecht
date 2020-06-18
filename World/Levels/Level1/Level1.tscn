@@ -688,8 +688,13 @@ playing = true
 
 [node name="YSort - Entities" type="YSort" parent="."]
 
+<<<<<<< HEAD:World/Level1.tscn
+[node name="Player" parent="YSort - Entities" instance=ExtResource( 9 )]
+position = Vector2( 72.073, 65.921 )
+=======
 [node name="Player" parent="YSort - Entities" instance=ExtResource( 14 )]
 position = Vector2( 72.0962, 65.9209 )
+>>>>>>> 2fbf3b68162ba458a7f1908613b33cf1e1e39a0d:World/Levels/Level1/Level1.tscn
 
 [node name="Camera2D" type="Camera2D" parent="YSort - Entities/Player"]
 current = true
