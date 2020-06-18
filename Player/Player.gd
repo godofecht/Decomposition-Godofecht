@@ -167,11 +167,14 @@ func absorb():
 		OnSuctionStartSFX.play()
 		AnimationState.travel("Suction")
 		SuctionEmitter1.emitting = true
-		SuctionEmitter1.visible = true
+		SuctionEmitter1.modulate.a = 1
+		SuctionEmitter1.speed_scale = 1
 		SuctionEmitter2.emitting = true
-		SuctionEmitter2.visible = true
+		SuctionEmitter2.modulate.a = 1
+		SuctionEmitter2.speed_scale = 1
 		SuctionEmitter3.emitting = true
-		SuctionEmitter3.visible = true
+		SuctionEmitter3.modulate.a = 1
+		SuctionEmitter3.speed_scale = 1
 	AbsorbCollision.disabled = false
 
 func stopAbsorbing():
@@ -181,11 +184,14 @@ func stopAbsorbing():
 	OnSuctionFinishSFX.play()
 	AbsorbCollision.disabled = true
 	SuctionEmitter1.emitting = false
-	SuctionEmitter1.visible = false
+	SuctionEmitter1.speed_scale = 10000
+	SuctionEmitter1.modulate.a = 0
 	SuctionEmitter2.emitting = false
-	SuctionEmitter2.visible = false
+	SuctionEmitter2.modulate.a = 0
+	SuctionEmitter2.speed_scale = 10000
 	SuctionEmitter3.emitting = false
-	SuctionEmitter3.visible = false
+	SuctionEmitter3.modulate.a = 0
+	SuctionEmitter3.speed_scale = 10000
 
 func move():
 	velocity = move_and_slide(velocity)

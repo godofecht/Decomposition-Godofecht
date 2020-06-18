@@ -110,9 +110,10 @@ graph_offset = Vector2( 15, 40 )
 radius = 9.03929
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( -10, 0, 10, 0, 0, -20 )
+points = PoolVector2Array( -10, 0, 10, 0, 0, -25 )
 
 [sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0 )
 colors = PoolColorArray( 0, 1, 0.0392157, 0, 0.0617676, 0.988281, 0.508729, 1 )
 
 [sub_resource type="OccluderPolygon2D" id=16]
@@ -154,7 +155,7 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="AbsorbCollision" type="CollisionShape2D" parent="AbsorbArea"]
-position = Vector2( -0.0462036, -39.293 )
+position = Vector2( 1.036, -58.2316 )
 rotation = -3.14159
 scale = Vector2( 2, 2 )
 shape = SubResource( 14 )
@@ -170,6 +171,7 @@ emission_rect_extents = Vector2( -4, 1 )
 direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
+scale_amount = 2.0
 color_ramp = SubResource( 15 )
 
 [node name="SuctionEmitter2" type="CPUParticles2D" parent="AbsorbArea"]
@@ -183,10 +185,11 @@ emission_rect_extents = Vector2( -4, 1 )
 direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
+scale_amount = 2.0
 color_ramp = SubResource( 15 )
 
 [node name="SuctionEmitter3" type="CPUParticles2D" parent="AbsorbArea"]
-position = Vector2( -6.02393, -56.148 )
+position = Vector2( -6.02393, -56.214 )
 rotation = -0.523599
 emitting = false
 amount = 10
@@ -196,6 +199,7 @@ emission_rect_extents = Vector2( -4, 1 )
 direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( -25, 70 )
+scale_amount = 2.0
 color_ramp = SubResource( 15 )
 
 [node name="Light2D" type="Light2D" parent="."]

@@ -525,6 +525,7 @@ size = 20
 font_data = ExtResource( 6 )
 
 [node name="MainScreen" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 7 )
 
 [node name="Map" type="Node2D" parent="."]
@@ -598,6 +599,7 @@ __meta__ = {
 }
 
 [node name="YSort - Entities" type="YSort" parent="."]
+pause_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="YSort - Entities"]
 position = Vector2( 206.079, 120.849 )

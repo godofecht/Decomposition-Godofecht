@@ -8,6 +8,7 @@ func fadeIn():
 	if (colorRect == null): return
 	t.interpolate_property(colorRect, "modulate:a", 0,1, fadeTime, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	t.start()
+	
 
 func fadeOut():
 	if (colorRect == null): return
