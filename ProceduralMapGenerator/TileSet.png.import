@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a3ce3d52755e7bf231313031d34e87fa.stex"
+path="res://.import/TileSet.png-ae2902873327e5d455765c3f732649de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Door/Door.png"
-dest_files=[ "res://.import/Door.png-a3ce3d52755e7bf231313031d34e87fa.stex" ]
+source_file="res://ProceduralMapGenerator/TileSet.png"
+dest_files=[ "res://.import/TileSet.png-ae2902873327e5d455765c3f732649de.stex" ]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ProceduralMapGenerator/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://ProceduralMapGenerator/ProceduralMap.gd" type="Script" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera2D2.tscn" type="PackedScene" id=4]
+
+[node name="TileSet" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 9
+format = 1
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 188.545, 199.231 )
+
+[node name="Camera2D2" parent="Player" instance=ExtResource( 4 )]

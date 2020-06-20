@@ -1,6 +1,7 @@
 extends Node2D
 
 var firstLevel = "res://World/Levels/Level1/Level1.tscn"
+#var firstLevel = "res://ProceduralMapGenerator/ProceduralMap.tscn"
 
 
 func _on_Easy_body_shape_entered(body_id: int, body: Node, body_shape: int, area_shape: int) -> void:

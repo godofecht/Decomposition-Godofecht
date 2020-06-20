@@ -3,10 +3,12 @@
 [ext_resource path="res://MainScreen/Music - Menu.ogg" type="AudioStream" id=1]
 [ext_resource path="res://MenuItems/Transition/Transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=3]
-[ext_resource path="res://World/WorldTileset.png" type="Texture" id=4]
+[ext_resource path="res://ProceduralMapGenerator/TileSet.png" type="Texture" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://DificultySelectionScreen/DificultyScreen.gd" type="Script" id=7]
+
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )

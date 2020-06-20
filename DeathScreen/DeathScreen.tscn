@@ -2,11 +2,13 @@
 
 [ext_resource path="res://DeathScreen/DeathScreen.gd" type="Script" id=1]
 [ext_resource path="res://Shader/Rectangle 1.png" type="Texture" id=2]
-[ext_resource path="res://World/WorldTileset.png" type="Texture" id=3]
+[ext_resource path="res://ProceduralMapGenerator/TileSet.png" type="Texture" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://World/BackgroundSounds/Ambience.ogg" type="AudioStream" id=6]
 [ext_resource path="res://World/NextLevelNode/NextLevel.tscn" type="PackedScene" id=7]
+
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
