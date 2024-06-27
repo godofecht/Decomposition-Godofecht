@@ -6,6 +6,6 @@ A game developed for UOP - 4 day Game Jam
 
 Sound Designer - Camiel Povel
 
-Developer - Abhishek Shivakumar
+Gameplay & Character Developer - Abhishek Shivakumar
 
-Developer & 2D Artist - Me
+Developer & 2D Artist - Kevin D Fitch
