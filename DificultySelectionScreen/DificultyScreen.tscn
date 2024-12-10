@@ -8,8 +8,6 @@
 [ext_resource path="res://World/Fonts/Pixeled.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://DificultySelectionScreen/DificultyScreen.gd" type="Script" id=7]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -608,6 +606,7 @@ autoplay = true
 
 [node name="Easy" type="Area2D" parent="."]
 position = Vector2( 106.469, 169.657 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Easy"]
 position = Vector2( 5.14049, 5.00522 )
@@ -615,6 +614,7 @@ shape = SubResource( 51 )
 
 [node name="Hard" type="Area2D" parent="."]
 position = Vector2( 202.162, 170.209 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hard"]
 position = Vector2( 5.14049, 5.00522 )
@@ -622,9 +622,10 @@ shape = SubResource( 51 )
 
 [node name="Insane" type="Area2D" parent="."]
 position = Vector2( 296.927, 169.103 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Insane"]
-position = Vector2( 5.14049, 5.00522 )
+position = Vector2( 5.1405, 5.00522 )
 shape = SubResource( 51 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -632,13 +633,11 @@ modulate = Color( 1, 1, 1, 0 )
 margin_right = 448.0
 margin_bottom = 276.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Transition" parent="." instance=ExtResource( 2 )]
+
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
-[connection signal="body_shape_entered" from="Easy" to="." method="_on_Easy_body_shape_entered"]
-[connection signal="body_shape_entered" from="Hard" to="." method="_on_Hard_body_shape_entered"]
-[connection signal="body_shape_entered" from="Insane" to="." method="_on_Insane_body_shape_entered"]
+[connection signal="body_entered" from="Easy" to="." method="_on_Easy_body_entered"]
+[connection signal="body_entered" from="Hard" to="." method="_on_Hard_body_entered"]
+[connection signal="body_entered" from="Insane" to="." method="_on_Insane_body_entered"]
 [connection signal="tween_completed" from="Transition" to="." method="_on_Transition_tween_completed"]

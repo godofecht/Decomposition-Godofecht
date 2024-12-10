@@ -17,8 +17,6 @@
 [ext_resource path="res://World/Heart.png" type="Texture" id=17]
 [ext_resource path="res://MenuItems/Notification.tscn" type="PackedScene" id=18]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -747,6 +745,7 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]

@@ -566,8 +566,8 @@ margin_left = 3.09515
 margin_top = 91.3062
 margin_right = 3.09521
 margin_bottom = 139.306
-custom_fonts/font = SubResource( 50 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.756863 )
+custom_fonts/font = SubResource( 50 )
 text = "DECOMPOSITION
 
 "
@@ -584,16 +584,13 @@ margin_left = -0.228935
 margin_top = -293.735
 margin_right = -0.228943
 margin_bottom = -4.73505
-custom_fonts/font = SubResource( 51 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.756863 )
+custom_fonts/font = SubResource( 51 )
 text = "Made by 
 Camiel Povel, KevinDNF, Abhishek Shivakumar
 "
 align = 1
 valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="YSort - Entities" type="YSort" parent="."]
 pause_mode = 1
@@ -621,4 +618,7 @@ autoplay = true
 [node name="NextLevelArea" parent="." instance=ExtResource( 1 )]
 keep_stuff = false
 nextLevel = "res://DificultySelectionScreen/DificultyScreen.tscn"
+
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
+
+[editable path="NextLevelArea"]

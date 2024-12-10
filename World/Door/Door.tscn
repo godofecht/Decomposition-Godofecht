@@ -4,7 +4,6 @@
 [ext_resource path="res://ProceduralMapGenerator/Door.png" type="Texture" id=2]
 [ext_resource path="res://World/Door/SFX/Player - Open Door.ogg" type="AudioStream" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.90967, 10.3608 )
 

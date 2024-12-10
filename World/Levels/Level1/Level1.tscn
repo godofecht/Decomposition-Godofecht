@@ -129,7 +129,6 @@ __meta__ = {
 position = Vector2( -95.1522, -24.4901 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [node name="Crystals" type="Label" parent="UI/HUD"]
@@ -149,6 +148,7 @@ __meta__ = {
 position = Vector2( -163.956, -22.6682 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Health" type="Label" parent="UI/HUD"]
@@ -169,7 +169,6 @@ __meta__ = {
 position = Vector2( -309.412, -23.0233 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
-frame = 1
 playing = true
 
 [node name="Notification" parent="UI" instance=ExtResource( 18 )]
@@ -237,6 +236,7 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="AmmoChange" from="YSort - Entities/Player" to="." method="_on_Player_AmmoChange"]
 [connection signal="CrystalCollectedChange" from="YSort - Entities/Player" to="." method="_on_Player_CrystalCollectedChange"]
 [connection signal="HealthChange" from="YSort - Entities/Player" to="." method="_on_Player_HealthChange"]
