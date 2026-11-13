@@ -96,7 +96,11 @@ Game still in development. It was made during a four-day jam and has had no chan
 
 ## Licence
 
-The repo's licence lets you use, copy and change this code for any purpose, as long as you keep the copyright notice. See [LICENSE](LICENSE) (MIT). The art, sound and music were made by the team listed below.
+The MIT licence in [LICENSE](LICENSE) covers the code. It lets you use, copy and change the code for any purpose, as long as you keep the copyright notice.
+
+The art is by Kevin D Fitch and the sound and music are by Camiel Povel. [CREDITS.md](CREDITS.md) lists which files are theirs. If you want to reuse any of the art, sound or music, check with its creator first.
+
+The `World/Fonts/Pixeled.ttf` font is by OmegaPC777 and is under the FontStruct Non-Commercial Licence.
 
 ## Credits
 
@@ -106,4 +110,4 @@ A game developed for the UOP 4 day Game Jam.
 - Gameplay and Character Developer: Abhishek Shivakumar
 - Developer and 2D Artist: Kevin D Fitch (KevinDNF)
 
-Built with [Godot](https://godotengine.org/). The `World/Fonts/Pixeled.ttf` font is included in the repo.
+Built with [Godot](https://godotengine.org/). The full list of who made each asset is in [CREDITS.md](CREDITS.md).
